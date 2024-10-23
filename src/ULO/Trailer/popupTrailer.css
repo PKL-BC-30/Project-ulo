@@ -1,0 +1,58 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-scroll {
+    width: 100vw;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    z-index: 1000;
+    display: flex;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.popup-content {
+    width: 1000px;
+    height: 1000px;
+    border-radius: 13px;
+    background-color: #262428;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.thumbnail {
+    width: 1000px;
+    height: auto;
+}
+
+.closeIcon {
+    cursor: pointer;
+    width: 40px;
+    height: auto;
+    margin-left: 945px;
+    margin-top: 14px;
+    position: absolute;
+    z-index: 100;
+}
+
+.gradasi {
+    width: 1000px;
+    height: 230px;
+    background: linear-gradient(rgba(38, 36, 40, 0.0), rgba(38, 36, 40, 1.0));
+    z-index: 100;
+    position: absolute;
+    margin-top: -230px;
+}

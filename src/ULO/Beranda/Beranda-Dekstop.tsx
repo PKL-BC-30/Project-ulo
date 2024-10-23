@@ -1,10 +1,22 @@
 import { createSignal,  onCleanup, onMount } from 'solid-js';
 import './Beranda-Dekstop.css';
 import Navbar from '../Navbar/Navbar';
+import PopupTrailer from '../Trailer/popupTrailer';
 
 const Dekstop = () => {
 
     const [scrolled, setScrolled] = createSignal(false);
+    const [showPopup, setShowPopup] = createSignal(false);
+
+    const handlePopup = () => {
+        setShowPopup(true);  // Menampilkan popup
+        document.body.style.overflow = 'hidden';  // Sembunyikan scrollbar
+    };
+
+    const closePopup = () => {
+        setShowPopup(false);  // Menutup popup
+        document.body.style.overflow = 'auto';  // Tampilkan scrollbar kembali
+    };
 
   // Handle scroll event
   const handleScroll = () => {
@@ -18,8 +30,12 @@ const Dekstop = () => {
   // Attach scroll event listener on mount and clean it up on unmount
   onMount(() => {
     window.addEventListener("scroll", handleScroll);
-    onCleanup(() => window.removeEventListener("scroll", handleScroll));
-  });
+    onCleanup(() => {
+        window.removeEventListener("scroll", handleScroll);
+        // Kembalikan scrollbar jika komponen unmount dan masih dalam keadaan tersembunyi
+        document.body.style.overflow = 'auto';
+    });
+});
 
     return (
         <div class="main-countainer">
@@ -49,7 +65,7 @@ const Dekstop = () => {
                             <div class="movie-duration">2j 30min</div>
                         </div>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card" onClick={handlePopup}>
                         <img src="src\foto\Rekomendasi2.svg" alt="movie 2" />
                         <div class="movie-info">
                             <h3 class="movie-title">Extraction</h3>
@@ -92,6 +108,7 @@ const Dekstop = () => {
                     </div>
                 </div>
             </section >
+            {showPopup() && <PopupTrailer onClose={closePopup} />}
         </div>
     );
 };
