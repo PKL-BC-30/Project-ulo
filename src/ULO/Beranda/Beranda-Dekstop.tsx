@@ -15,12 +15,12 @@ const Dekstop = () => {
 
     const handleScroll = () => {
         if (window.scrollY > 0) {
-          setScrolled(true);
+            setScrolled(true);
         } else {
-          setScrolled(false);
+            setScrolled(false);
         }
-      };
-    
+    };
+
 
     const closePopup = () => {
         setShowPopup(false);  // Menutup popup
@@ -29,23 +29,26 @@ const Dekstop = () => {
     let movieGridRefRekomendasi;  // Ref for "Rekomendasi untuk Anda"
     let movieGridRefIndo;         // Ref for "Film & Acara TV Indonesia"
 
-    // Scroll functions for "Rekomendasi untuk Anda"
+    // Scroll functions for "Rekomendasi untuk Anda
+
+    // Attach scroll event listener on mount and clean it up on unmount
+    onMount(() => {
+        window.addEventListener("scroll", handleScroll);
+        onCleanup(() => {
+            window.removeEventListener("scroll", handleScroll);
+            // Kembalikan scrollbar jika komponen unmount dan masih dalam keadaan tersembunyi
+            document.body.style.overflow = 'auto';
+        });
+    });
+
     const scrollLeftRekomendasi = () => {
         movieGridRefRekomendasi.scrollBy({ left: -300, behavior: 'smooth' });
     };
 
-  // Attach scroll event listener on mount and clean it up on unmount
-  onMount(() => {
-    window.addEventListener("scroll", handleScroll);
-    onCleanup(() => {
-        window.removeEventListener("scroll", handleScroll);
-        // Kembalikan scrollbar jika komponen unmount dan masih dalam keadaan tersembunyi
-        document.body.style.overflow = 'auto';
-    });
-});
     const scrollRightRekomendasi = () => {
         movieGridRefRekomendasi.scrollBy({ left: 300, behavior: 'smooth' });
     };
+
 
     // Scroll functions for "Film & Acara TV Indonesia"
     const scrollLeftIndo = () => {
@@ -87,7 +90,6 @@ const Dekstop = () => {
                         <img src="src\foto\kiri.svg" alt="kiri" />
                     </button>
                     <div class="movie-grid" ref={movieGridRefRekomendasi}>
-
                         <div class="movie-card">
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 1" />
                             <div class="movie-info">
@@ -95,13 +97,7 @@ const Dekstop = () => {
                                 <div class="movie-duration">2j 30min</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="movie-card" onClick={handlePopup}>
-                        <img src="src\foto\Rekomendasi2.svg" alt="movie 2" />
-                        <div class="movie-info">
-                            <h3 class="movie-title">Extraction</h3>
-                            <div class="movie-duration">2j 15min</div>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi2.svg" alt="movie 2" />
                             <div class="movie-info">
                                 <h3 class="movie-title">Extraction</h3>
@@ -145,12 +141,10 @@ const Dekstop = () => {
                                 <div class="movie-duration">1j 45min</div>
                             </div>
                         </div>
-
                     </div>
                     <button class="scroll-button" onClick={scrollRightRekomendasi}>
                         <img src="src\foto\kanan.svg" alt="kanan" />
                     </button>
-                    </div>
                 </div>
             </section>
 
