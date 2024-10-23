@@ -5,7 +5,8 @@ import { render } from 'solid-js/web';
 import { Router, Route, Routes } from '@solidjs/router';
 
 import Dekstop from './ULO/Beranda/Beranda-Dekstop';
-
+import Login_Register
+ from './ULO/Login & Register/Login_Register';
 const root = document.getElementById('root');
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
@@ -19,6 +20,7 @@ render(
     <Router>
       <Routes>
         <Route path="/Beranda-Dekstop" element={<Dekstop />} />
+        <Route path="/login" element={<Login_Register />} />
       </Routes>
     </Router>
   ),
