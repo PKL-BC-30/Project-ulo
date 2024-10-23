@@ -1,9 +1,10 @@
 .main-container {
-    background-color: #0a0a0a;
-    color: white;
+    background-color: #151318;
+    overflow-x: hidden;
 }
 
 .hero {
+    position: relative;
     height: 80vh;
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),
         url('../src/foto/Hero-section.svg') center/cover;
@@ -11,8 +12,19 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 2rem;
+    z-index: 1;
 }
 
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px; /* Height of the gradient */
+    background: linear-gradient(rgba(21, 19, 24, 0), rgba(21, 19, 24, 1));
+    z-index: 2; /* Make sure it's above the hero background */
+}
 
 .hero-content {
     max-width: 800px;
@@ -37,6 +49,20 @@
     font-size: 3rem;
     margin-bottom: 1rem;
     color: white;
+}
+
+.carousel{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 1450px;
+    position: absolute;
+}
+
+.carousel img{
+    justify-content: center;
+    margin-top: 75px;
+    z-index: 1000;
 }
 
 .buttons {
@@ -64,27 +90,52 @@
 
 .section {
     padding: 2rem;
+    background-color: #151318;
+    overflow: hidden;
 }
 
 .section-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    color: white;
 }
 
+
 .movie-grid {
-    display: grid;
+    display: flex;
+    overflow-x: hidden; 
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 6rem;
+    gap: 20px;
     margin-top: 1rem;
 }
 
 .movie-card {
+    flex: 0 0 300px; /* Ensures all movie cards have the same width */
     position: relative;
     border-radius: 8px;
-    overflow: hidden;
+    overflow-y: auto; /* Enables vertical scrolling */
     transition: transform 0.3s;
     height: 170px;
     width: 300px;
+}
+
+.movie-controls {
+    display: flex;
+    align-items: center;
+}
+
+.scroll-button {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin: 0 1rem;
+    transition: background-color 0.3s;
+}
+
+.scroll-button:hover {
+    background-color: black;
 }
 
 .movie-card:hover {
@@ -109,6 +160,7 @@
 .movie-title {
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    color: white;
 }
 
 .movie-duration {
