@@ -27,7 +27,7 @@ const Navbar = () => {
                 <div class="nav-links">
                     <a href="/Beranda-Dekstop">Beranda</a>
                     <a href="/Baru&Populer">Baru & Populer</a>
-                    <a href="#">Daftar Saya</a>
+                    <a href="/DaftarSaya">Daftar Saya</a>
                     <a href="#">Filter Pencarian</a>
                 </div>
             </nav>

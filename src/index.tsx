@@ -10,6 +10,7 @@ import Dekstop from './ULO/Beranda/Beranda-Dekstop';
 import Login_Register from './ULO/Login & Register/Login_Register';
 import LupaPass from './ULO/Lupa Password/lupapass';
 import Baru_populer from './ULO/Baru&popup/Baru&Populer';
+import DaftarSaya from './ULO/Daftar Saya/DaftarSaya';
 const root = document.getElementById('root');
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
@@ -25,6 +26,7 @@ render(
         <Route path="/Beranda-Dekstop" element={<Dekstop />} />
         <Route path="/Baru&Populer" element={<Baru_populer />} />
         <Route path="/login" element={<Login_Register />} />
+        <Route path="/DaftarSaya" element={<DaftarSaya />} />
       </Routes>
     </Router>
   ),
