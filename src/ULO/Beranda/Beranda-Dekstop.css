@@ -197,3 +197,209 @@
     border-radius: 4px;
     font-size: 0.8rem;
 }
+
+/*video player*/
+
+.pembungkus {
+    max-width: 1300px;
+    height: 600px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden; /* Membatasi elemen di dalam */
+    background-color: #1E1C21;
+    border-radius: 10px;
+}
+
+.judul {
+    font-size: 24px;
+    font-weight: 500;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    color: white;
+}
+
+/* Slider */
+.pembungkus-slider {
+    display: flex;
+    transition: transform 0.5s ease; /* Menambah transisi geser */
+    gap: 12px;
+    padding: 20px;
+    margin-top: 40px;
+    overflow: hidden; /* Agar video baru tidak menyebabkan overflow */
+}
+
+.kartu-video {
+    min-width: 100%; /* Untuk mengambil seluruh lebar slider */
+    max-width: 700px; /* Membatasi lebar maksimum agar lebih fleksibel */
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    flex: 1 0 auto;
+}
+
+.kartu-video.aktif {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Video Thumbnail */
+.gambar-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-video {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    justify-content: center;
+}
+
+.poster-film {
+    width: 115px;
+    height: 65px;
+    border-radius: 8px;
+    margin-right: 12px;
+}
+
+.detail-video {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom: -60px;
+
+}
+
+.teks-video {
+    flex: 1;
+}
+
+.judul-video {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.durasi-video {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+}
+
+.kontrol {
+    display: flex;
+    gap: 8px;
+    margin-left: 1000px;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.tombol-kontrol {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.tombol-putar {
+    background-color: #4a4eff;
+}
+
+.pembungkus-progres {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.bar-progres {
+    height: 100%;
+    background-color: #fff;
+    width: 0;
+}
+
+.video-berikutnya {
+    width: 620px;
+    height: 400px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-berikutnya img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.info-berikutnya {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+.judul-berikutnya {
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.durasi-berikutnya {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+}
+
+.navigasi {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 3;
+}
+
+.tombol-navigasi {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.peringkat {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    color: black;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    z-index: 2;
+}

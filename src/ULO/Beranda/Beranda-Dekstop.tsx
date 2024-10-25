@@ -1,4 +1,4 @@
-import { createSignal, onCleanup, onMount } from 'solid-js';
+import { createSignal, onCleanup, onMount, For } from 'solid-js';
 import './Beranda-Dekstop.css';
 import Navbar from '../Navbar/Navbar';
 import PopupTrailer from '../Trailer/popupTrailer';
@@ -7,7 +7,7 @@ const Dekstop = () => {
 
     const [scrolled, setScrolled] = createSignal(false);
     const [showPopup, setShowPopup] = createSignal(false);
-    const [currentSlide, setCurrentSlide] = createSignal(0);  // State untuk melacak slide aktif
+    const [currentSlide, setCurrentSlide] = createSignal(0);  // State untuk melacak slide aktif  // State untuk melacak slide aktif
 
     const handlePopup = () => {
         setShowPopup(true);  // Menampilkan popup
@@ -28,7 +28,8 @@ const Dekstop = () => {
     };
 
     let movieGridRefRekomendasi;  // Ref for "Rekomendasi untuk Anda"
-    let movieGridRefIndo;         // Ref for "Film & Acara TV Indonesia"
+    let movieGridRefIndo;
+    let movieLagaPetualangan       // Ref for "Film & Acara TV Indonesia"
 
     // Scroll functions for "Rekomendasi untuk Anda"
     const scrollLeftRekomendasi = () => {
@@ -46,6 +47,14 @@ const Dekstop = () => {
 
     const scrollRightIndo = () => {
         movieGridRefIndo.scrollBy({ left: 300, behavior: 'smooth' });
+    };
+
+    const scrollLeftPetualangan = () => {
+        movieLagaPetualangan.scrollBy({ left: -300, behavior: 'smooth' })
+    };
+
+    const scrollRightPetualangan = () => {
+        movieLagaPetualangan.scrollBy({ left: 300, behavior: 'smooth' })
     };
 
     // Tambahkan array untuk background image
@@ -82,6 +91,29 @@ const Dekstop = () => {
             document.body.style.overflow = 'auto'; // Kembalikan scrollbar jika popup tertutup
         });
     });
+    // State untuk melacak trailer yang aktif
+    const [currentTrailer, setCurrentTrailer] = createSignal(0);
+    const trailersData = [
+        { videoSrc: 'src/foto/avatar3.mp4', posterSrc: 'src/foto/Avatar-HeroSection.svg', title: 'Avatar: The Way of Water', duration: '3:00' },
+        { videoSrc: 'src/foto/Spiderman.mp4', posterSrc: 'src/foto/Spiderman-HeroSection.svg', title: 'Spider-Man: No Way Home', duration: '3:00' },
+        { videoSrc: 'video2.mp4', posterSrc: 'poster2.jpg', title: 'Film 2', duration: '3:00' },
+        // Tambahkan lebih banyak trailer jika perlu
+    ];
+
+    let videoRef: HTMLVideoElement | null = null;
+
+    // Event listener ketika video selesai
+    const handleVideoEnd = () => {
+        // Berpindah ke trailer selanjutnya, ulangi ke awal jika sudah di akhir
+        setCurrentTrailer((prev) => (prev + 1) % trailersData.length);
+    };
+
+    // Tambahkan event listener untuk video end
+    onCleanup(() => {
+        if (videoRef) {
+            videoRef.removeEventListener('ended', handleVideoEnd);
+        }
+    });
 
     return (
         <div class="main-countainer">
@@ -106,7 +138,7 @@ const Dekstop = () => {
                             src="src/foto/carousel1.svg"
                             alt="carousel1"
                             class={currentSlide() === 0 ? 'active-slide' : ''}
-                            style={{ filter: currentSlide() === 0 ? 'brightness(100%)' : 'brightness(50%)' }}
+                            style={{ filter: currentSlide() === 0 ? 'brightne`ss(100%)' : 'brightness(50%)' }}
                         />
                         <img
                             src="src/foto/carousel1.svg"
@@ -250,6 +282,129 @@ const Dekstop = () => {
                     </button>
                 </div>
             </section >
+
+            <section class="section">
+                <div class="pembungkus">
+                    <h1 class="judul">10 Film Teratas Hari Ini</h1>
+                    <div class="pembungkus-slider">
+                        <For each={trailersData}>
+                            {(trailer, index) => (
+                                <div
+                                    class={`kartu-video ${index() === currentTrailer() ? 'aktif' : ''}`}
+                                    style={{
+                                        transform: `translateX(-${currentTrailer() * 100}%)`, // Animasi slide
+                                        transition: 'transform 0.5s ease',
+                                    }}
+                                >
+                                    <div class="peringkat">#{index() + 1}</div>
+                                    <video
+                                        src={trailer.videoSrc}
+                                        class="gambar-thumbnail"
+                                        ref={el => {
+                                            if (index() === currentTrailer()) {
+                                                videoRef = el;
+                                                videoRef.addEventListener('ended', handleVideoEnd);
+                                            }
+                                        }}
+                                        autoplay
+                                        muted
+                                        loop={index() !== currentTrailer()} // Loop hanya pada trailer yang tidak aktif
+                                    ></video>
+                                    <div class="info-video">
+                                        <div class="detail-video">
+                                            <img src={trailer.posterSrc} alt="Poster film" class="poster-film" />
+                                            <div class="teks-video">
+                                                <h3 class="judul-video">{trailer.title}</h3>
+                                                <p class="durasi-video">{trailer.duration}</p>
+                                            </div>
+                                        </div>
+                                        <div class="kontrol">
+                                            <button class="tombol-kontrol tombol-putar">
+                                                <img src="src/foto/play.svg" alt="play" />
+                                            </button>
+                                            <button class="tombol-kontrol">
+                                                <img src="src/foto/info.svg" alt="info" />
+                                            </button>
+                                            <button class="tombol-kontrol">
+                                                <img src="src/foto/plus.svg" alt="plus" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="pembungkus-progres">
+                                        <div class="bar-progres"></div>
+                                    </div>
+                                </div>
+                            )}
+                        </For>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Film Laga dan Petualangan</h2>
+                <div class="movie-controls">
+                    <button class="scroll-button" onClick={scrollLeftPetualangan}>
+                        <img src="src\foto\kiri.svg" alt="kiri" />
+                    </button>
+                    <div class="movie-grid" ref={movieLagaPetualangan}>
+                        <div class="movie-card">
+                            <img src="src\foto\Rekomendasi1.svg" alt="movie 1" />
+                            <div class="movie-info">
+                                <h3 class="movie-title">One Piece</h3>
+                                <div class="movie-duration">2j 30min</div>
+                            </div>
+                        </div>
+                        <div class="movie-card" onClick={handlePopup}>
+                            <img src="src\foto\Rekomendasi2.svg" alt="movie 2" />
+                            <div class="movie-info">
+                                <h3 class="movie-title">Extraction</h3>
+                                <div class="movie-duration">2j 15min</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="src\foto\Rekomendasi1.svg" alt="movie 3" />
+                            <div class="movie-info">
+                                <h3 class="movie-title">The Angry Birds 2</h3>
+                                <div class="movie-duration">1j 45min</div>
+                            </div>
+                        </div>
+
+                        <div class="movie-card">
+                            <img src="src\foto\Rekomendasi1.svg" alt="movie 4" />
+                            <div class="movie-info">
+                                <h3 class="movie-title">The Angry Birds 2</h3>
+                                <div class="movie-duration">1j 45min</div>
+                            </div>
+                        </div>
+
+                        <div class="movie-card">
+                            <img src="src\foto\Rekomendasi1.svg" alt="movie 5" />
+                            <div class="movie-info">
+                                <h3 class="movie-title">The Angry Birds 2</h3>
+                                <div class="movie-duration">1j 45min</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="src\foto\Rekomendasi1.svg" alt="movie 5" />
+                            <div class="movie-info">
+                                <h3 class="movie-title">The Angry Birds 2</h3>
+                                <div class="movie-duration">1j 45min</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="src\foto\Rekomendasi1.svg" alt="movie 5" />
+                            <div class="movie-info">
+                                <h3 class="movie-title">The Angry Birds 2</h3>
+                                <div class="movie-duration">1j 45min</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="scroll-button" onClick={scrollRightPetualangan}>
+                        <img src="src\foto\kanan.svg" alt="kanan" />
+                    </button>
+                </div>
+            </section>
+
             {showPopup() && <PopupTrailer onClose={closePopup} />}
         </div>
     );
