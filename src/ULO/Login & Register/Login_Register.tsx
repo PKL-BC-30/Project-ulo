@@ -46,6 +46,7 @@ const LoginRegister: Component = () => {
   // Class for tab container and fields in register mode
   const tabContainerClass = () => `tab-container ${isRegister() ? 'register' : ''}`;
   const registerFieldClass = () => `input-group register-field ${!isRegister() ? 'hide' : ''}`;
+
   const handleLogin = (e: Event) => {
     e.preventDefault();
     // Logika untuk login, misalnya validasi jika diperlukan

@@ -22,6 +22,8 @@
 .leftSection {
     display: flex;
     align-items: center;
+    background: black; /* Background saat di-scroll */ 
+    height: 70px;
 }
 
 .logo {
