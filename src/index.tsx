@@ -2,7 +2,8 @@
 import './index.css';
 
 import { render } from 'solid-js/web';
-import { Router, Route, Routes } from '@solidjs/router';
+import { Router, Route, Routes, useNavigate } from '@solidjs/router';
+
 
 import Dekstop from './ULO/Beranda/Beranda-Dekstop';
 import Login_Register
