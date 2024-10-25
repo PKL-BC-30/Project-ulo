@@ -25,8 +25,8 @@ const Navbar = () => {
             <nav class={`navbar ${scrolled() ? "scrolled" : ""}`}>
                 <div class="logo">ULO.</div>
                 <div class="nav-links">
-                    <a href="#">Beranda</a>
-                    <a href="#">Baru & Populer</a>
+                    <a href="/Beranda-Dekstop">Beranda</a>
+                    <a href="/Baru&Populer">Baru & Populer</a>
                     <a href="#">Daftar Saya</a>
                     <a href="#">Filter Pencarian</a>
                 </div>

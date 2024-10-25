@@ -10,7 +10,8 @@
 }
 
 .navbar.scrolled {
-    background: black; /* Background saat di-scroll */
+    background: black; /* Background saat di-scroll */ 
+    height: 70px;
 }
 
 .logo {
