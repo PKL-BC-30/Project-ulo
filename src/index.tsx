@@ -3,6 +3,7 @@ import './index.css';
 
 import { render } from 'solid-js/web';
 import { Router, Route, Routes, useNavigate } from '@solidjs/router';
+import './fonts.css'
 
 
 import Dekstop from './ULO/Beranda/Beranda-Dekstop';
