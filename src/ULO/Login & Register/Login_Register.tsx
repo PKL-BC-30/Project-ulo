@@ -19,10 +19,12 @@ import poster8 from './Asset/poster8.svg';
 import poster9 from './Asset/poster9.svg';
 import poster10 from './Asset/poster10.svg';
 import './Login_Register.css';
+import { useNavigate } from '@solidjs/router';
 
 const LoginRegister: Component = () => {
   const [isRegister, setIsRegister] = createSignal(false);
   const [showPassword, setShowPassword] = createSignal(false);
+  const navigate = useNavigate();
   const [formData, setFormData] = createSignal({
     username: '',
     email: '',
@@ -40,6 +42,14 @@ const LoginRegister: Component = () => {
       }
     }
   };
+
+  const handleLogin = (e: Event) => {
+    e.preventDefault();
+    // Logika untuk login, misalnya validasi jika diperlukan
+    // Setelah login berhasil, navigasi ke halaman beranda
+    navigate("/Beranda-Dekstop"); // Ganti "/home" dengan route yang sesuai untuk halaman beranda
+  };
+  
 
   return (
     <div class="container">
@@ -125,7 +135,7 @@ const LoginRegister: Component = () => {
             </span>
           </label>
 
-          <button type="submit" class="submit-button">
+          <button type="submit" class="submit-button" onclick={handleLogin}>
             {isRegister() ? 'Daftar' : 'Lanjutkan'}
           </button>
 
