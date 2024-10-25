@@ -3,22 +3,22 @@ import styles from './FilterPencarian.module.css';
 import Navbar from "../Navbar/Navbar";
 
 // Gambar
-import One_Piece from '/Users/HP/Project-ulo/src/foto/One-Piece.png';
-import Extraction_2 from '/Users/HP/Project-ulo/src/foto/Extraction-2.png';
-import TAOL from '/Users/HP/Project-ulo/src/foto/The-Architecture-of-Love.png';
-import Angry_Birds from '/Users/HP/Project-ulo/src/foto/The-Angry-Birds-Movie-2.png';
-import Titanic from '/Users/HP/Project-ulo/src/foto/Titanic.png';
-import Dua_Hati_Biru from '/Users/HP/Project-ulo/src/foto/Dua-Hati-Biru.png';
-import Mariposa from '/Users/HP/Project-ulo/src/foto/Mariposa.png';
-import Filosofi_Kopi from '/Users/HP/Project-ulo/src/foto/Filosofi-Kopi-The-Series.png';
-import Ratu_Ilmu_Hitam from '/Users/HP/Project-ulo/src/foto/Ratu-Ilmu-Hitam.png';
-import Rumah_Masa_Depan from '/Users/HP/Project-ulo/src/foto/Rumah-Masa-Depan.png';
-import Godzila_Minus_One from '/Users/HP/Project-ulo/src/foto/Godzila-Minus-One.png';
-import Dumbledore from '/Users/HP/Project-ulo/src/foto/The-Secrets-of-Dumbledore.png';
-import Heart_Of_Stone from '/Users/HP/Project-ulo/src/foto/Heart-of-Stone.png';
-import John_Wick from '/Users/HP/Project-ulo/src/foto/John-Wick.png';
-import Menjelang_Ajal from '/Users/HP/Project-ulo/src/foto/Menjelang-Ajal.png';
-import Gifted from '/Users/HP/Project-ulo/src/foto/Gifted.png';
+import One_Piece from '../../foto/One-Piece.png';
+import Extraction_2 from '../../foto/Extraction-2.png';
+import TAOL from '../../foto/The-Architecture-of-Love.png';
+import Angry_Birds from '../../foto/The-Angry-Birds-Movie-2.png';
+import Titanic from '../../foto/Titanic.png';
+import Dua_Hati_Biru from '../../foto/Dua-Hati-Biru.png';
+import Mariposa from '../../foto/Mariposa.png';
+import Filosofi_Kopi from '../../foto/Filosofi-Kopi-The-Series.png';
+import Ratu_Ilmu_Hitam from '../../foto/Ratu-Ilmu-Hitam.png';
+import Rumah_Masa_Depan from '../../foto/Rumah-Masa-Depan.png';
+import Godzila_Minus_One from '../../foto/Godzila-Minus-One.png';
+import Dumbledore from '../../foto/The-Secrets-of-Dumbledore.png';
+import Heart_Of_Stone from '../../foto/Heart-of-Stone.png';
+import John_Wick from '../../foto/John-Wick.png';
+import Menjelang_Ajal from '../../foto/Menjelang-Ajal.png';
+import Gifted from '../../foto/Gifted.png';
 
 const FilterPencarian = () => {
     const [bahasa, setBahasa] = createSignal("Bahasa");

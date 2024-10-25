@@ -12,6 +12,8 @@
     justify-content: flex-end;
     padding: 2rem;
     z-index: 1;
+    overflow-x: hidden;
+
 }
 
 .hero::before {
