@@ -26,8 +26,8 @@ const Navbar = () => {
           <a href="/beranda-Dekstop" class="logo">ULO.</a>
           <div class="nav-links">
             <a href="/beranda-Dekstop" class="active">Beranda</a>
-            <a href="/baru-populer">Baru & Populer</a>
-            <a href="/daftar-saya">Daftar Saya</a>
+            <a href="/baru&populer">Baru & Populer</a>
+            <a href="/DaftarSaya">Daftar Saya</a>
             <a href="/filter-pencarian" >Filter Pencarian</a>
           </div>
         </div>

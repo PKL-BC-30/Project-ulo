@@ -12,6 +12,11 @@ import Login_Register from './ULO/Login & Register/Login_Register';
 import LupaPass from './ULO/Lupa Password/lupapass';
 import Baru_populer from './ULO/Baru&popup/Baru&Populer';
 import DaftarSaya from './ULO/Daftar Saya/DaftarSaya';
+import App from './ULO/Film-Player/videoplayer';
+import EPS from './ULO/Film-Player/episodeplayer';
+
+
+
 const root = document.getElementById('root');
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
@@ -29,6 +34,8 @@ render(
         <Route path="/Baru&Populer" element={<Baru_populer />} />
         <Route path="/login" element={<Login_Register />} />
         <Route path="/DaftarSaya" element={<DaftarSaya />} />
+        <Route path="/VidPlayer" element={<App />} />
+        <Route path="/VidEps" element={<EPS />} />
       </Routes>
     </Router>
   ),
