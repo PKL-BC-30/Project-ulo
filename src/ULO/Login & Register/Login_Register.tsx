@@ -41,36 +41,40 @@ const LoginRegister: Component = () => {
     }
   };
 
+  // Class for tab container and fields in register mode
+  const tabContainerClass = () => `tab-container ${isRegister() ? 'register' : ''}`;
+  const registerFieldClass = () => `input-group register-field ${!isRegister() ? 'hide' : ''}`;
+
   return (
     <div class="container">
       <div class="login-section">
         <h1 class="logo">ULO.</h1>
         <h2 class="welcome">Selamat Datang!</h2>
         
-        <div class="tab-container">
+        <div class={tabContainerClass()}>
           <button 
             class={`tab ${!isRegister() ? 'active' : ''}`}
             onClick={() => setIsRegister(false)}
           >
-            Sign in
+            Login
           </button>
           <button 
             class={`tab ${isRegister() ? 'active' : ''}`}
             onClick={() => setIsRegister(true)}
           >
-            Sign up
+            Register
           </button>
         </div>
 
         <form class="form" onSubmit={handleSubmit}>
           <Show when={isRegister()}>
-            <div class="input-group">
+            <div class={registerFieldClass()}>
               <img src={user} alt="user" class="icon" />
               <input
                 type="text"
                 placeholder="Username"
                 value={formData().username}
-                onInput={(e) => setFormData({...formData(), username: e.currentTarget.value})}
+                onInput={(e) => setFormData({ ...formData(), username: e.currentTarget.value })}
               />
             </div>
           </Show>
@@ -81,17 +85,17 @@ const LoginRegister: Component = () => {
               type="email"
               placeholder="Email"
               value={formData().email}
-              onInput={(e) => setFormData({...formData(), email: e.currentTarget.value})}
+              onInput={(e) => setFormData({ ...formData(), email: e.currentTarget.value })}
             />
           </div>
 
           <div class="input-group">
             <img src={password} alt="password" class="icon" />
             <input
-              type={showPassword() ? "text" : "password"}
+              type={showPassword() ? 'text' : 'password'}
               placeholder="Password"
               value={formData().password}
-              onInput={(e) => setFormData({...formData(), password: e.currentTarget.value})}
+              onInput={(e) => setFormData({ ...formData(), password: e.currentTarget.value })}
             />
             <img
               src={showPassword() ? hidepassword : showpassword}
@@ -102,13 +106,13 @@ const LoginRegister: Component = () => {
           </div>
 
           <Show when={isRegister()}>
-            <div class="input-group">
+            <div class={registerFieldClass()}>
               <img src={telepon} alt="phone" class="icon" />
               <input
                 type="tel"
                 placeholder="Nomor Telepon"
                 value={formData().phone}
-                onInput={(e) => setFormData({...formData(), phone: e.currentTarget.value})}
+                onInput={(e) => setFormData({ ...formData(), phone: e.currentTarget.value })}
               />
             </div>
           </Show>
@@ -117,7 +121,7 @@ const LoginRegister: Component = () => {
             <input
               type="checkbox"
               checked={formData().agreeToTerms}
-              onChange={(e) => setFormData({...formData(), agreeToTerms: e.currentTarget.checked})}
+              onChange={(e) => setFormData({ ...formData(), agreeToTerms: e.currentTarget.checked })}
             />
             <span>
               Dengan mendaftar, saya menyatakan telah membaca dan menyetujui{' '}
@@ -157,7 +161,6 @@ const LoginRegister: Component = () => {
           <img src={poster1} alt="Movie Poster" class="poster" />
           <img src={poster10} alt="Movie Poster" class="poster" />
           <img src={poster4} alt="Movie Poster" class="poster" />
-          
         </div>
         <div class="poster-column middle-column">
           <img src={poster2} alt="Movie Poster" class="poster" />
