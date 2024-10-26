@@ -57,26 +57,26 @@ function EpisodeList(props: EpisodeListProps) {
 
   return (
     <Show when={props.isOpen}>
-      <div class="overlay" onClick={handleOverlayClick}>
-        <div class="episode-list">
+      <div class="overlayFawwaz" onClick={handleOverlayClick}>
+        <div class="episode-listFawwaz">
           <For each={episodes}>
             {(episode) => {
               const isSelected = () => selectedEpisode() === episode.number;
               
               return (
             
-                <div class="episode">
+                <div class="episodeFawwaz">
                   
                   <div 
-                    class="episode-header" 
+                    class="episode-headerFawwaz" 
                     onClick={() => handleEpisodeClick(episode.number)}
                   >
-                    <div class="episode-number-title">
-                      <span class="episode-number">{episode.number}.</span>
-                      <span class="episode-title">Episode {episode.number}</span>
+                    <div class="episode-number-titleFawwaz">
+                      <span class="episode-numberFawwaz">{episode.number}.</span>
+                      <span class="episode-titleFawwaz">Episode {episode.number}</span>
                     </div>
                     <svg
-                      class={`chevron ${isSelected() ? 'expanded' : ''}`}
+                      class={`chevronFawwaz ${isSelected() ? 'expandedFawwaz' : ''}`}
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -87,15 +87,15 @@ function EpisodeList(props: EpisodeListProps) {
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </div>
-                  <div class={`episode-content ${isSelected() ? 'expanded' : ''}`}>
+                  <div class={`episode-contentFawwaz ${isSelected() ? 'expandedFawwaz' : ''}`}>
                     {episode.image && (
                       <img 
                         src={episode.image} 
                         alt={`Episode ${episode.number}`} 
-                        class="episode-image"
+                        class="episode-imageFawwaz"
                       />
                     )}
-                    <p class="episode-description">{episode.description}</p>
+                    <p class="episode-descriptionFawwaz">{episode.description}</p>
                   </div>
                 </div>
               );

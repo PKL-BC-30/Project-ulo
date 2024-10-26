@@ -12,6 +12,10 @@ interface VideoPlayerProps {
   onReport?: () => void;
 }
 
+interface EpisodeListProps {
+  isOpen: boolean; // Changed from Accessor<boolean> to boolean
+  onClose: () => void;
+}
 
   const VideoPlayer: Component<VideoPlayerProps> = (props) => {
     const [isOpen, setIsOpen] = createSignal(false);
@@ -32,8 +36,6 @@ interface VideoPlayerProps {
     const [showControls, setShowControls] = createSignal(true);
     const [showEpisodelist, setShowEpisodelist] = createSignal(false);  
     const [showPopup, setShowPopup] = createSignal(false);
-
-    
    
     let videoRef: HTMLVideoElement | undefined;
     let containerRef: HTMLDivElement | undefined;
@@ -81,8 +83,9 @@ interface VideoPlayerProps {
     console.log("Redirecting to the next video...");
     // Implement your navigation logic here (e.g., using a router)
   };
+
   const handleSubmit = (reason: string) => {
-    console.log('Selected episode:', reason);
+    console.log('Submitted episode:', reason);
     setIsOpen(false);
   };
 
@@ -346,10 +349,10 @@ interface VideoPlayerProps {
   return (
     <div 
     ref={containerRef} 
-    class={styles.videoContainer}
+    class={styles.videoContainerFawwaz}
     onMouseMove={handleMouseMove}
   >
-     <div class={`${styles.backButton} ${!showControls() && isFullscreen() ? styles.hidden : ''}`} onClick={props.onBack}>
+     <div class={`${styles.backButtonFawwaz} ${!showControls() && isFullscreen() ? styles.hiddenFawwaz : ''}`} onClick={props.onBack}>
       <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_b_134_80)">
           <rect width="38" height="38" rx="19" fill="white" fill-opacity="0.12"/>
@@ -367,7 +370,7 @@ interface VideoPlayerProps {
     </div>
    
 
-    <div class={`${styles.reportButton} ${!showControls() && isFullscreen() ? styles.hidden : ''}`} onClick={handleReportClick}>
+    <div class={`${styles.reportButtonFawwaz} ${!showControls() && isFullscreen() ? styles.hiddenFawwaz : ''}`} onClick={handleReportClick}>
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M6.0083 2.33333V25.6667" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M6.0083 4.66667H19.075C22.225 4.66667 22.925 6.41667 20.7083 8.63334L19.3083 10.0333C18.375 10.9667 18.375 12.4833 19.3083 13.3L20.7083 14.7C22.925 16.9167 22.1083 18.6667 19.075 18.6667H6.0083" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -383,7 +386,7 @@ interface VideoPlayerProps {
     
       <video
          ref={videoRef}
-         class={styles.video}
+         class={styles.videoFawwaz}
          onTimeUpdate={handleTimeUpdate}
          onLoadedMetadata={handleLoadedMetadata}
          onClick={handleVideoClick}
@@ -391,12 +394,12 @@ interface VideoPlayerProps {
          muted={isMuted()}
       />
       
-      <div class={`${styles.controls} ${!showControls() && isFullscreen() ? styles.hidden : ''}`}>
-        <div class={styles.progressBarWrapper}>
+      <div class={`${styles.controlsFawwaz} ${!showControls() && isFullscreen() ? styles.hiddenFawwaz : ''}`}>
+        <div class={styles.progressBarWrapperFawwaz}>
           <input
           ref={progressBarRef}
           type="range"
-          class={styles.progressBar}
+          class={styles.progressBarFawwaz}
           min="0"
           max={duration()}
           value={currentTime()}
@@ -404,14 +407,14 @@ interface VideoPlayerProps {
           onChange={handleProgressBarChange}
           />
 
-<span class={styles.timeDisplay}>
+<span class={styles.timeDisplayFawwaz}>
             {formatTime(currentTime())} / {formatTime(duration())}
           </span>
         </div>
 
-        <div class={styles.buttonsContainer}>
-          <div class={styles.leftControls}>
-            <button class={styles.controlButton} onClick={togglePlay}>
+        <div class={styles.buttonsContainerFawwaz}>
+          <div class={styles.leftControlsFawwaz}>
+            <button class={styles.controlButtonFawwaz} onClick={togglePlay}>
               {isPlaying() ? (
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.5375 20.7025V5.2975C11.5375 3.835 10.92 3.25 9.36 3.25H5.4275C3.8675 3.25 3.25 3.835 3.25 5.2975V20.7025C3.25 22.165 3.8675 22.75 5.4275 22.75H9.36C10.92 22.75 11.5375 22.165 11.5375 20.7025Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -424,7 +427,7 @@ interface VideoPlayerProps {
               )}
             </button>
             
-            <button class={styles.controlButton} onClick={() => seek(-10)}>
+            <button class={styles.controlButtonFawwaz} onClick={() => seek(-10)}>
               <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.335 17.2466V11.4617L8.70996 13.2708" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M10.855 4.84249L13 2.16669" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -433,7 +436,7 @@ interface VideoPlayerProps {
               </svg>
             </button>
 
-            <button class={styles.controlButton} onClick={() => seek(10)}>
+            <button class={styles.controlButtonFawwaz} onClick={() => seek(10)}>
               <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15.145 4.84249L13 2.16669" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M20.6808 8.45001C21.8833 10.0533 22.6308 12.0358 22.6308 14.2025C22.6308 19.5217 18.3192 23.8334 13 23.8334C7.68082 23.8334 3.36914 19.5217 3.36914 14.2025C3.36914 8.88334 7.68082 4.57166 13 4.57166C13.7367 4.57166 14.4517 4.66921 15.145 4.83171" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -442,8 +445,8 @@ interface VideoPlayerProps {
               </svg>
             </button>
 
-            <div class={styles.volumeControl}>
-              <button class={styles.controlButton} onClick={toggleVolumeControl}>
+            <div class={styles.volumeControlFawwaz}>
+              <button class={styles.controlButtonFawwaz} onClick={toggleVolumeControl}>
                 {isMuted() ? (
                   <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.2498 9.0675V8.0275C16.2498 4.79916 14.0073 3.56416 11.2773 5.27583L8.114 7.25833C7.76734 7.46416 7.3665 7.58333 6.96567 7.58333H5.4165C3.24984 7.58333 2.1665 8.66666 2.1665 10.8333V15.1667C2.1665 17.3333 3.24984 18.4167 5.4165 18.4167H7.58317" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -460,7 +463,7 @@ interface VideoPlayerProps {
                 )}
               </button>
               {isVolumeControlVisible() && (
-                <div ref={volumeControlRef} class={styles.volumeSlider}>
+                <div ref={volumeControlRef} class={styles.volumeSliderFawwaz}>
                   <input
                     type="range"
                     min="0"
@@ -468,14 +471,14 @@ interface VideoPlayerProps {
                     step="0.1"
                     value={volume()}
                     onInput={handleVolumeChange}
-                    class={styles.volumeRange}
+                    class={styles.volumeRangeFawwaz}
                   />
                 </div>
               )}
             </div>
           </div>
 
-          <div class={styles.rightControls}>
+          <div class={styles.rightControlsFawwaz}>
           <SubtitleSelector
             options={[
               { lang: 'id', label: 'Bahasa Indonesia' },
@@ -485,9 +488,9 @@ interface VideoPlayerProps {
             currentLang={currentSubtitleLang()}
           />
 
-<div class={styles.iconContainer}>
+<div class={styles.iconContainerFawwaz}>
       <button
-        class={styles.controlButton}
+        class={styles.controlButtonFawwaz}
         onClick={handleNextVideo}
         onMouseEnter={() => setShowPopup(true)}
         onMouseLeave={() => setShowPopup(false)}
@@ -526,13 +529,12 @@ interface VideoPlayerProps {
       />
     </div>
 
-      <EpisodeList 
-        isOpen={isOpen()} 
+    <EpisodeList 
+        isOpen={isOpen()} // Call the signal to get its value
         onClose={handleClose}
-        onSubmit={handleSubmit}
-      />
+    />
           
-      <button class={styles.controlButton} onClick={toggleEpisodePopup}> 
+      <button class={styles.controlButtonFawwaz} onClick={toggleEpisodePopup}> 
 
       <svg width="42" height="33" viewBox="0 0 42 33" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_217_655)">
@@ -556,7 +558,7 @@ interface VideoPlayerProps {
 
       </button>
       
-<button class={styles.controlButton} onClick={togglePlaybackSpeedPopup}>
+<button class={styles.controlButtonFawwaz} onClick={togglePlaybackSpeedPopup}>
               <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20.8808 3.31771C26.5246 7.3485 27.8474 15.2269 23.809 20.8813C22.2377 23.0814 20.015 24.6878 17.3641 25.523C16.8478 25.684 16.2952 25.4016 16.1342 24.8854C15.9733 24.3692 16.2556 23.8165 16.7718 23.6555C19.0128 22.9448 20.8939 21.592 22.2148 19.7426C25.6231 14.9704 24.5144 8.32032 19.7422 4.91198C14.97 1.50364 8.31989 2.61234 4.91155 7.38453C1.50322 12.1567 2.61192 18.8068 7.38411 22.2152C8.00056 22.6555 8.6808 23.0289 9.47488 23.3553C9.96834 23.5633 10.2143 24.1402 10.0063 24.6336C9.79837 25.1271 9.22141 25.3731 8.72795 25.1651C7.80177 24.7765 6.97883 24.3332 6.24546 23.8094C0.60174 19.7787 -0.721104 11.9002 3.31728 6.24589C7.35567 0.591537 15.2371 -0.71309 20.8808 3.31771Z" fill="white"/>
                 <circle cx="3.5" cy="3.5" r="3.5" transform="matrix(1 0 0 -1 9 18)" fill="white"/>
@@ -564,22 +566,22 @@ interface VideoPlayerProps {
               </svg>
             </button>
             {showPlaybackSpeedPopup() && (
-      <div class={styles.playbackSpeedPopup}>
-        <div class={styles.playbackSpeedTitle}>Kecepatan Pemutaran</div>
-        <div class={styles.speedOptions}>
+      <div class={styles.playbackSpeedPopupFawwaz}>
+        <div class={styles.playbackSpeedTitleFawwaz}>Kecepatan Pemutaran</div>
+        <div class={styles.speedOptionsFawwaz}>
           {playbackSpeedOptions.map((option, index) => (
             <div 
-              class={`${styles.speedOption} ${playbackSpeed() === option.value ? styles.activeSpeed : ''}`}
+              class={`${styles.speedOptionFawwaz} ${playbackSpeed() === option.value ? styles.activeSpeedFawwaz : ''}`}
               onClick={() => handleSpeedSelection(option.value, index)}
             >
-              <div class={styles.speedDot}></div>
+              <div class={styles.speedDotFawwaz}></div>
               <span>{option.label}</span>
             </div>
           ))}
         </div>
       </div>
     )}
-            <button class={styles.controlButton} onClick={toggleFullscreen}>
+            <button class={styles.controlButtonFawwaz} onClick={toggleFullscreen}>
               {isFullscreen() ? (
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M2.1665 9.75002V7.04169C2.1665 4.34419 4.344 2.16669 7.0415 2.16669H9.74984" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

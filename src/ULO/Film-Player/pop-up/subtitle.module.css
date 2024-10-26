@@ -1,10 +1,10 @@
 /* ... (keep your existing styles) */
 
-.subtitleSelector {
+.subtitleSelectorFawwaz {
   position: relative;
 }
 
-.subtitleButton {
+.subtitleButtonFawwaz {
   background: transparent;
   border: none;
   color: white;
@@ -18,11 +18,11 @@
   transition: opacity 0.2s ease;
 }
 
-.subtitleButton:hover {
+.subtitleButtonFawwaz:hover {
   opacity: 0.8;
 }
 
-.subtitlePopup {
+.subtitlePopupFawwaz {
   position: absolute;
   bottom: 100%;
   right: 0;
@@ -33,7 +33,7 @@
   z-index: 10;
 }
 
-.subtitleOption {
+.subtitleOptionFawwaz {
   display: block;
   width: 100%;
   padding: 8px 16px;
@@ -46,20 +46,20 @@
   font-size: 14px;
 }
 
-.subtitleOption:hover {
+.subtitleOptionFawwaz:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.subtitleOption.active {
+.subtitleOptionFawwaz.active {
   color: #3498db; /* Change this to match the exact blue color in the image */
 }
 /* ... (keep your existing styles) */
 
-.subtitleSelector {
+.subtitleSelectorFawwaz {
     position: relative;
   }
   
-  .subtitleButton {
+  .subtitleButtonFawwaz {
     background: transparent;
     border: none;
     color: white;
@@ -73,11 +73,11 @@
     transition: opacity 0.2s ease;
   }
   
-  .subtitleButton:hover {
+  .subtitleButtonFawwaz:hover {
     opacity: 0.8;
   }
   
-  .subtitlePopup {
+  .subtitlePopupFawwaz {
     position: absolute;
     bottom: 100%;
     right: 0;
@@ -88,7 +88,7 @@
     z-index: 10;
   }
   
-  .subtitleOption {
+  .subtitleOptionFawwaz {
     display: block;
     width: 100%;
     padding: 8px 16px;
@@ -101,10 +101,10 @@
     font-size: 14px;
   }
   
-  .subtitleOption:hover {
+  .subtitleOptionFawwaz:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
   
-  .subtitleOption.active {
+  .subtitleOptionFawwaz.active {
     color: #3498db; /* Change this to match the exact blue color in the image */
   }

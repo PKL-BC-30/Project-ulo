@@ -40,10 +40,10 @@ const BufferingDialog: Component<BufferingDialogProps> = (props) => {
 
   return (
     <Show when={props.isOpen}>
-      <div class={styles.overlay}>
-        <div class={styles.dialog}>
-          <div class={styles.header}>
-            <button class={styles.closeButton} onClick={props.onClose}>
+      <div class={styles.overlayFawwaz}>
+        <div class={styles.dialogFawwaz}>
+          <div class={styles.headerFawwaz}>
+            <button class={styles.closeButtonFawwaz} onClick={props.onClose}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -51,12 +51,12 @@ const BufferingDialog: Component<BufferingDialogProps> = (props) => {
             </button>
           </div>
           
-          <div class={styles.content}>
-            <p class={styles.message}>
+          <div class={styles.contentFawwaz}>
+            <p class={styles.messageFawwaz}>
               Untuk masalah pemutaan video atau streaming, temukan solusinya di Pusat Bantuan ULO
             </p>
             
-            <button class={styles.helpButton} onClick={() => window.open('/Beranda-Dekstop', '_blank')}>
+            <button class={styles.helpButtonFawwaz} onClick={() => window.open('/Beranda-Dekstop', '_blank')}>
               Buka Pusat Bantuan ULO
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15 10L5 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -64,17 +64,17 @@ const BufferingDialog: Component<BufferingDialogProps> = (props) => {
               </svg>
             </button>
 
-            <div class={styles.textareaContainer}>
+            <div class={styles.textareaContainerFawwaz}>
               <textarea
                 placeholder="Ada rincian lain? Tambahkan disini (opsional)"
                 value={details()}
                 onInput={(e) => setDetails(e.currentTarget.value)}
-                class={styles.textarea}
+                class={styles.textareaFawwaz}
               />
             </div>
 
             <button 
-              class={styles.submitButton}
+              class={styles.submitButtonFawwaz}
               onClick={handleSubmit}
             >
               Kirim
@@ -109,11 +109,11 @@ const SubtitleIssueDialog: Component<SubtitleIssueDialogProps> = (props) => {
 
   return (
     <Show when={props.isOpen}>
-      <div class={styles.overlay}>
-        <div class={styles.dialog}>
-          <div class={styles.header}>
+      <div class={styles.overlayFawwaz}>
+        <div class={styles.dialogFawwaz}>
+          <div class={styles.headerFawwaz}>
             <h2>Pilih semua yang sesuai :</h2>
-            <button class={styles.closeButton} onClick={props.onClose}>
+            <button class={styles.closeButtonFawwaz} onClick={props.onClose}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -121,9 +121,9 @@ const SubtitleIssueDialog: Component<SubtitleIssueDialogProps> = (props) => {
             </button>
           </div>
           
-          <div class={styles.content}>
+          <div class={styles.contentFawwaz}>
             {issues.map((issue) => (
-              <label class={styles.checkboxLabel}>
+              <label class={styles.checkboxLabelFawwaz}>
                 <input
                   type="checkbox"
                   checked={selectedIssues().includes(issue)}
@@ -133,17 +133,17 @@ const SubtitleIssueDialog: Component<SubtitleIssueDialogProps> = (props) => {
               </label>
             ))}
 
-            <div class={styles.textareaContainer}>
+            <div class={styles.textareaContainerFawwaz}>
               <textarea
                 placeholder="Masalah tidak tercantum di daftar? Tambahkan disini (opsional)"
                 value={details()}
                 onInput={(e) => setDetails(e.currentTarget.value)}
-                class={styles.textarea}
+                class={styles.textareaFawwaz}
               />
             </div>
 
             <button 
-              class={styles.submitButton}
+              class={styles.submitButtonFawwaz}
               onClick={handleSubmit}
             >
               Kirim
@@ -178,11 +178,11 @@ const AudioVideoIssueDialog: Component<AudioVideoIssueDialogProps> = (props) => 
 
   return (
     <Show when={props.isOpen}>
-      <div class={styles.overlay}>
-        <div class={styles.dialog}>
-          <div class={styles.header}>
+      <div class={styles.overlayFawwaz}>
+        <div class={styles.dialogFawwaz}>
+          <div class={styles.headerFawwaz}>
             <h2>Pilih semua yang sesuai :</h2>
-            <button class={styles.closeButton} onClick={props.onClose}>
+            <button class={styles.closeButtonFawwaz} onClick={props.onClose}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -190,9 +190,9 @@ const AudioVideoIssueDialog: Component<AudioVideoIssueDialogProps> = (props) => 
             </button>
           </div>
           
-          <div class={styles.content}>
+          <div class={styles.contentFawwaz}>
             {issues.map((issue) => (
-              <label class={styles.checkboxLabel}>
+              <label class={styles.checkboxLabelFawwaz}>
                 <input
                   type="checkbox"
                   checked={selectedIssues().includes(issue)}
@@ -202,17 +202,17 @@ const AudioVideoIssueDialog: Component<AudioVideoIssueDialogProps> = (props) => 
               </label>
             ))}
 
-            <div class={styles.textareaContainer}>
+            <div class={styles.textareaContainerFawwaz}>
               <textarea
                 placeholder="Masalah tidak tercantum di daftar? Tambahkan disini (opsional)"
                 value={details()}
                 onInput={(e) => setDetails(e.currentTarget.value)}
-                class={styles.textarea}
+                class={styles.textareaFawwaz}
               />
             </div>
 
             <button 
-              class={styles.submitButton}
+              class={styles.submitButtonFawwaz}
               onClick={handleSubmit}
             >
               Kirim
@@ -248,11 +248,11 @@ const OtherIssuesDialog: Component<OtherIssuesDialogProps> = (props) => {
 
   return (
     <Show when={props.isOpen}>
-      <div class={styles.overlay}>
-        <div class={styles.dialog}>
-          <div class={styles.header}>
+      <div class={styles.overlayFawwaz}>
+        <div class={styles.dialogFawwaz}>
+          <div class={styles.headerFawwaz}>
             <h2>Pilih semua yang sesuai :</h2>
-            <button class={styles.closeButton} onClick={props.onClose}>
+            <button class={styles.closeButtonFawwaz} onClick={props.onClose}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -260,9 +260,9 @@ const OtherIssuesDialog: Component<OtherIssuesDialogProps> = (props) => {
             </button>
           </div>
           
-          <div class={styles.content}>
+          <div class={styles.contentFawwaz}>
             {issues.map((issue) => (
-              <label class={styles.checkboxLabel}>
+              <label class={styles.checkboxLabelFawwaz}>
                 <input
                   type="checkbox"
                   checked={selectedIssues().includes(issue)}
@@ -272,17 +272,17 @@ const OtherIssuesDialog: Component<OtherIssuesDialogProps> = (props) => {
               </label>
             ))}
 
-            <div class={styles.textareaContainer}>
+            <div class={styles.textareaContainerFawwaz}>
               <textarea
                 placeholder="Masalah tidak tercantum di daftar? Tambahkan disini (opsional)"
                 value={details()}
                 onInput={(e) => setDetails(e.currentTarget.value)}
-                class={styles.textarea}
+                class={styles.textareaFawwaz}
               />
             </div>
 
             <button 
-              class={styles.submitButton}
+              class={styles.submitButtonFawwaz}
               onClick={handleSubmit}
             >
               Kirim
@@ -357,11 +357,11 @@ const ReportDialog: Component<ReportDialogProps> = (props) => {
   return (
     <>
       <Show when={props.isOpen}>
-        <div class={styles.overlay}>
-          <div class={styles.dialog}>
-            <div class={styles.header}>
+        <div class={styles.overlayFawwaz}>
+          <div class={styles.dialogFawwaz}>
+            <div class={styles.headerFawwaz}>
               <h2>Apa masalahnya?</h2>
-              <button class={styles.closeButton} onClick={props.onClose}>
+              <button class={styles.closeButtonFawwaz} onClick={props.onClose}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                   <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -369,15 +369,15 @@ const ReportDialog: Component<ReportDialogProps> = (props) => {
               </button>
             </div>
             
-            <div class={styles.content}>
+            <div class={styles.contentFawwaz}>
               {reportReasons.map((reason) => (
                 <button
-                  class={styles.reasonButton}
-                  classList={{ [styles.selected]: selectedReason() === reason.title }}
+                  class={styles.reasonButtonFawwaz}
+                  classList={{ [styles.selectedFawwaz]: selectedReason() === reason.title }}
                   onClick={() => handleReasonClick(reason.title)}
                 >
-                  <div class={styles.reasonTitle}>{reason.title}</div>
-                  <div class={styles.reasonDescription}>{reason.description}</div>
+                  <div class={styles.reasonTitleFawwaz}>{reason.title}</div>
+                  <div class={styles.reasonDescriptionFawwaz}>{reason.description}</div>
                 </button>
               ))}
             </div>

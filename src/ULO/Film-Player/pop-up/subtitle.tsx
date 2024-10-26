@@ -18,9 +18,9 @@ const SubtitleSelector = (props: SubtitleSelectorProps) => {
   const togglePopup = () => setIsOpen(!isOpen());
 
   return (
-    <div class={styles.subtitleSelector}>
+    <div class={styles.subtitleSelectorFawwaz}>
       <button
-        class={`${styles.controlButton} ${styles.subtitleButton}`}
+        class={`${styles.controlButtonFawwaz} ${styles.subtitleButtonFawwaz}`}
         onClick={togglePopup}
         aria-label="Select subtitle language"
       >
@@ -33,11 +33,11 @@ const SubtitleSelector = (props: SubtitleSelectorProps) => {
         </svg>
       </button>
       <Show when={isOpen()}>
-        <div class={styles.subtitlePopup}>
+        <div class={styles.subtitlePopupFawwaz}>
           <For each={props.options}>
             {(option) => (
               <button
-                class={`${styles.subtitleOption} ${
+                class={`${styles.subtitleOptionFawwaz} ${
                   props.currentLang === option.lang ? styles.active : ''
                 }`}
                 onClick={() => {

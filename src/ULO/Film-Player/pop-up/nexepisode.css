@@ -1,4 +1,4 @@
-.next-episode-popup {
+.next-episode-popupFawwaz {
   position: fixed;
   bottom: 50px;
   left: 89%;
@@ -13,20 +13,20 @@
   z-index: 1000;
 }
 
-.popup-header {
+.popup-headerFawwaz {
   padding: 16px;
   color: white;
   font-size: 0.9rem;
   background-color: #262626;
 }
 
-.popup-content {
+.popup-contentFawwaz {
   display: flex;
   gap: 16px;
   padding: 16px;
 }
 
-.thumbnail {
+.thumbnailFawwaz {
   width: 140px;
   height: 90px;
   border-radius: 8px;
@@ -34,12 +34,12 @@
   flex-shrink: 0;
 }
 
-.episode-info {
+.episode-infoFawwaz {
   flex-grow: 1;
   color: white;
 }
 
-.episode-title {
+.episode-titleFawwaz {
   font-size: 0.95rem;
   font-weight: 500;
   margin-bottom: 8px;
@@ -48,11 +48,11 @@
   align-items: center;
 }
 
-.episode-number {
+.episode-numberFawwaz {
   color: white;
 }
 
-.episode-description {
+.episode-descriptionFawwaz {
   font-size: 0.85rem;
   line-height: 1.5;
   color: #e0e0e0;

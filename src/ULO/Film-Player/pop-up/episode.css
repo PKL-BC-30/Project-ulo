@@ -1,4 +1,4 @@
-.overlay {
+.overlayFawwaz {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.episode-list {
+.episode-listFawwaz {
   background-color: #292929;
   border-radius: 8px;
   color: white;
@@ -26,87 +26,87 @@
 }
 
 /* Custom scrollbar styling */
-.episode-list::-webkit-scrollbar {
+.episode-listFawwaz::-webkit-scrollbar {
   width: 4px;
   height: 100%;
   right: 0;
   position: absolute;
 }
 
-.episode-list::-webkit-scrollbar-track {
+.episode-listFawwaz::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.episode-list::-webkit-scrollbar-thumb {
+.episode-listFawwaz::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 2px;
 }
 
-.episode-list::-webkit-scrollbar-thumb:hover {
+.episode-listFawwaz::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.4);
 }
 
 /* For Firefox */
-.episode-list {
+.episode-listFawwaz {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 
-.episode {
+.episodeFawwaz {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
 }
 
-.episode:last-child {
+.episodeFawwaz:last-child {
   border-bottom: none;
 }
 
-.episode-header {
+.episode-headerFawwaz {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0.5rem;
 }
 
-.episode-number-title {
+.episode-number-titleFawwaz {
   display: flex;
   gap: 0.75rem;
   align-items: center;
 }
 
-.episode-number {
+.episode-numberFawwaz {
   color: #fff;
   font-weight: 500;
 }
 
-.episode-title {
+.episode-titleFawwaz {
   color: #fff;
   font-weight: 500;
 }
 
-.chevron {
+.chevronFawwaz {
   width: 20px;
   height: 20px;
   transition: transform 0.2s ease;
 }
 
-.chevron.expanded {
+.chevronFawwaz.expandedFawwaz {
   transform: rotate(180deg);
 }
 
-.episode-content {
+.episode-contentFawwaz {
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.3s ease-out;
   padding: 0 0.5rem;
 }
 
-.episode-content.expanded {
+.episode-contentFawwaz.expandedFawwaz {
   max-height: 500px;
   transition: max-height 0.3s ease-in;
 }
 
-.episode-image {
+.episode-imageFawwaz {
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -114,7 +114,7 @@
   margin: 0.5rem 0;
 }
 
-.episode-description {
+.episode-descriptionFawwaz {
   color: #e0e0e0;
   font-size: 0.9rem;
   line-height: 1.5;

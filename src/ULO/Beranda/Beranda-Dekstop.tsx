@@ -156,7 +156,7 @@ const Dekstop = () => {
 
                     <div class="buttons">
                         <button class="btn btn-primary">Putar Sekarang</button>
-                        <button class="btn btn-secondary">Selengkapnya</button>
+                        <button class="btn btn-secondary" onClick={handlePopup}>Selengkapnya</button>
                     </div>
                 </div>
             </div>
@@ -168,7 +168,7 @@ const Dekstop = () => {
                         <img src="src\foto\kiri.svg" alt="kiri" />
                     </button>
                     <div class="movie-grid" ref={movieGridRefRekomendasi}>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 1" />
                             <div class="movie-info">
                                 <h3 class="movie-title">One Piece</h3>
@@ -182,7 +182,7 @@ const Dekstop = () => {
                                 <div class="movie-duration">2j 15min</div>
                             </div>
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 3" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>
@@ -190,7 +190,7 @@ const Dekstop = () => {
                             </div>
                         </div>
 
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 4" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>
@@ -198,21 +198,21 @@ const Dekstop = () => {
                             </div>
                         </div>
 
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 5" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>
                                 <div class="movie-duration">1j 45min</div>
                             </div>
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 5" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>
                                 <div class="movie-duration">1j 45min</div>
                             </div>
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 5" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>
@@ -233,7 +233,7 @@ const Dekstop = () => {
                         <img src="src\foto\kiri.svg" alt="kiri" />
                     </button>
                     <div class="movie-grid" ref={movieGridRefIndo}>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src/foto/Rekomendasi1.svg" alt="movie 4" />
                             <div class="movie-info">
                                 <h3 class="movie-title">Dua Hati Biru</h3>
@@ -241,35 +241,35 @@ const Dekstop = () => {
                             </div>
                         </div>
 
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 4" />
                             <div class="movie-info">
                                 <h3 class="movie-title">Dua Hati Biru</h3>
                                 <div class="movie-duration">1j 50min</div>
                             </div>
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 5" />
                             <div class="movie-info">
                                 <h3 class="movie-title">Mariposa</h3>
                                 <div class="movie-duration">2j 5min</div>
                             </div>
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 6" />
                             <div class="movie-info">
                                 <h3 class="movie-title">Filosofi Kopi</h3>
                                 <div class="movie-duration">1j 55min</div>
                             </div>
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 7" />
                             <div class="movie-info">
                                 <h3 class="movie-title">Dua Hati Biru</h3>
                                 <div class="movie-duration">1j 50min</div>
                             </div>
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 8" />
                             <div class="movie-info">
                                 <h3 class="movie-title">Dua Hati Biru</h3>
@@ -322,7 +322,7 @@ const Dekstop = () => {
                                             <button class="tombol-kontrol tombol-putar">
                                                 <img src="src/foto/play.svg" alt="play" />
                                             </button>
-                                            <button class="tombol-kontrol">
+                                            <button class="tombol-kontrol" onClick={handlePopup}>
                                                 <img src="src/foto/info.svg" alt="info" />
                                             </button>
                                             <button class="tombol-kontrol">
@@ -347,7 +347,7 @@ const Dekstop = () => {
                         <img src="src\foto\kiri.svg" alt="kiri" />
                     </button>
                     <div class="movie-grid" ref={movieLagaPetualangan}>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 1" />
                             <div class="movie-info">
                                 <h3 class="movie-title">One Piece</h3>
@@ -361,7 +361,7 @@ const Dekstop = () => {
                                 <div class="movie-duration">2j 15min</div>
                             </div>
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 3" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>
@@ -369,7 +369,7 @@ const Dekstop = () => {
                             </div>
                         </div>
 
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 4" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>
@@ -377,21 +377,21 @@ const Dekstop = () => {
                             </div>
                         </div>
 
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 5" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>
                                 <div class="movie-duration">1j 45min</div>
                             </div>
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 5" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>
                                 <div class="movie-duration">1j 45min</div>
                             </div>
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card" onClick={handlePopup}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 5" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>
