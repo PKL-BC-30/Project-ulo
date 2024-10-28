@@ -1,6 +1,7 @@
 import { Component, createSignal } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import "./lupapass.css";
+import lupapassimg from '../Lupa Password/lupapass.svg';
 
 const LupaPass: Component = () => {
   const navigate = useNavigate();
@@ -12,6 +13,10 @@ const LupaPass: Component = () => {
 
   const handleVerifyPassword = () => {
     setView("newPassword");
+  };
+
+  const handlePasswordResetSuccess = () => {
+    setView("success"); // New view for the success message
   };
 
   return (
@@ -57,14 +62,25 @@ const LupaPass: Component = () => {
             <label>Konfirmasi kata sandi</label>
             <input type="password" placeholder="Masukan kata sandi baru" />
           </div>
-          <button>Reset kata sandi</button>
+          <button onClick={handlePasswordResetSuccess}>Reset kata sandi</button>
+          <a href="#" onClick={() => navigate("/login")}>← Kembali ke login</a>
+        </div>
+      )}
+
+      {view() === "success" && (
+        // Success View
+        <div class="left-section">
+          <h1>ULO.</h1>
+          <h2>Reset kata sandi</h2>
+          <p>Kata sandi anda telah berhasil direset. Klik di bawah untuk melihat secara ajaib.</p>
+          <button onClick={() => navigate("/login")}>Lanjutkan</button>
           <a href="#" onClick={() => navigate("/login")}>← Kembali ke login</a>
         </div>
       )}
 
       <div class="right-section">
         <img
-          src="https://storage.googleapis.com/a1aa/image/XK2xhbv24jblJR8YYSZa7Fqv8uImI5hZ8m9YJFFHP1IwoY6E.jpg"
+          src={lupapassimg}
           alt="Illustration of a person standing next to a large mobile phone displaying a password input screen with a lock icon and a 'Done' button."
           width="500"
           height="500"
