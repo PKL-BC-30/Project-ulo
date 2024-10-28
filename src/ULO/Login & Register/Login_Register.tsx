@@ -1,4 +1,7 @@
 import { Component, createSignal, Show } from 'solid-js';
+import { useNavigate } from '@solidjs/router';
+
+// Import assets
 import user from './Asset/user.svg';
 import telepon from './Asset/telepon.svg';
 import password from './Asset/password.svg';
@@ -18,49 +21,64 @@ import poster7 from './Asset/poster7.svg';
 import poster8 from './Asset/poster8.svg';
 import poster9 from './Asset/poster9.svg';
 import poster10 from './Asset/poster10.svg';
+
+// Import styles
 import './Login_Register.css';
-import { useNavigate } from '@solidjs/router';
 
 const LoginRegister: Component = () => {
   const [isRegister, setIsRegister] = createSignal(false);
   const [showPassword, setShowPassword] = createSignal(false);
   const navigate = useNavigate();
+  
+  // Form data state
   const [formData, setFormData] = createSignal({
     username: '',
     email: '',
     password: '',
     phone: '',
-    agreeToTerms: false
   });
 
+  // Handle form submission
   const handleSubmit = (e: Event) => {
     e.preventDefault();
     if (isRegister()) {
+      // If in register mode, validate fields and switch to login
       const { username, email, password, phone } = formData();
       if (username && email && password && phone) {
         setIsRegister(false);
       }
+    } else {
+      // If in login mode, navigate to desktop
+      navigate("/Beranda-Dekstop");
     }
   };
 
-  // Class for tab container and fields in register mode
-  const tabContainerClass = () => `tab-container ${isRegister() ? 'register' : ''}`;
-  const registerFieldClass = () => `input-group register-field ${!isRegister() ? 'hide' : ''}`;
-
-  const handleLogin = (e: Event) => {
+  // Handle register button click
+  const handleRegisterClick = (e: Event) => {
     e.preventDefault();
-    // Logika untuk login, misalnya validasi jika diperlukan
-    // Setelah login berhasil, navigasi ke halaman beranda
-    navigate("/Beranda-Dekstop"); // Ganti "/home" dengan route yang sesuai untuk halaman beranda
+    // Validate fields and switch to login mode
+    const { username, email, password, phone } = formData();
+    if (username && email && password && phone) {
+      setIsRegister(false);
+    }
   };
 
+  // Navigation handlers
+  const handleForgotPassword = () => {
+    navigate('/lupapass');
+  };
+
+  // Class for tab container in register mode
+  const tabContainerClass = () => `tab-container ${isRegister() ? 'register' : ''}`;
 
   return (
     <div class="container">
+      {/* Login Section */}
       <div class="login-section">
         <h1 class="logo">ULO.</h1>
         <h2 class="welcome">Selamat Datang!</h2>
 
+        {/* Tab Container */}
         <div class={tabContainerClass()}>
           <button
             class={`tab ${!isRegister() ? 'active' : ''}`}
@@ -76,9 +94,11 @@ const LoginRegister: Component = () => {
           </button>
         </div>
 
+        {/* Form */}
         <form class="form" onSubmit={handleSubmit}>
+          {/* Username field - Only shown in register mode */}
           <Show when={isRegister()}>
-            <div class={registerFieldClass()}>
+            <div class="input-group">
               <img src={user} alt="user" class="icon" />
               <input
                 type="text"
@@ -89,6 +109,7 @@ const LoginRegister: Component = () => {
             </div>
           </Show>
 
+          {/* Email field */}
           <div class="input-group">
             <img src={email} alt="email" class="icon" />
             <input
@@ -99,6 +120,7 @@ const LoginRegister: Component = () => {
             />
           </div>
 
+          {/* Password field */}
           <div class="input-group">
             <img src={password} alt="password" class="icon" />
             <input
@@ -115,8 +137,9 @@ const LoginRegister: Component = () => {
             />
           </div>
 
+          {/* Phone field - Only shown in register mode */}
           <Show when={isRegister()}>
-            <div class={registerFieldClass()}>
+            <div class="input-group">
               <img src={telepon} alt="phone" class="icon" />
               <input
                 type="tel"
@@ -127,42 +150,46 @@ const LoginRegister: Component = () => {
             </div>
           </Show>
 
-          <label class="checkbox-group">
-            <input
-              type="checkbox"
-              checked={formData().agreeToTerms}
-              onChange={(e) => setFormData({ ...formData(), agreeToTerms: e.currentTarget.checked })}
-            />
-            <span>
-              Dengan mendaftar, saya menyatakan telah membaca dan menyetujui{' '}
-              <a href="#" class="link">Ketentuan</a> & <a href="#" class="link">Kebijakan Layanan</a>
-            </span>
-          </label>
-
-          <button type="submit" class="submit-button" onclick={handleLogin}>
+          {/* Submit button */}
+          <button 
+            type="submit" 
+            class="submit-button" 
+            onClick={isRegister() ? handleRegisterClick : handleSubmit}
+          >
             {isRegister() ? 'Daftar' : 'Lanjutkan'}
           </button>
 
-          <Show when={!isRegister()}>
-            <a class="forgot-password" onClick={() => navigate('/lupapass')}>Lupa Password?</a>
+          {/* Login link - Only shown in register mode */}
+          <Show when={isRegister()}>
+            <p class="login-link">
+              Sudah punya akun? <a href="#" onClick={() => setIsRegister(false)}>Login</a>
+            </p>
           </Show>
 
-          <div class="divider">Atau Masuk Dengan</div>
+          {/* Additional login options - Only shown in login mode */}
+          <Show when={!isRegister()}>
+            <a class="forgot-password" onClick={handleForgotPassword}>
+              Lupa Password?
+            </a>
 
-          <div class="social-login">
-            <button class="social-button">
-              <img src={google} alt="google" class="social-icon" />
-            </button>
-            <button class="social-button">
-              <img src={apple} alt="apple" class="social-icon" />
-            </button>
-            <button class="social-button">
-              <img src={facebook} alt="facebook" class="social-icon" />
-            </button>
-          </div>
+            <div class="divider">Atau Masuk Dengan</div>
+
+            <div class="social-login">
+              <button type="button" class="social-button-transparent">
+                <img src={google} alt="google" class="social-icon" />
+              </button>
+              <button type="button" class="social-button-transparent">
+                <img src={apple} alt="apple" class="social-icon" />
+              </button>
+              <button type="button" class="social-button-transparent">
+                <img src={facebook} alt="facebook" class="social-icon" />
+              </button>
+            </div>
+          </Show>
         </form>
       </div>
 
+      {/* Posters Section */}
       <div class="posters-section">
         <div class="poster-column left-column">
           <img src={poster1} alt="Movie Poster" class="poster" />

@@ -2,7 +2,7 @@
 .container {
     display: flex;
     height: 100vh;
-    background: #0a0a0a;
+    background-color: black;
     color: #ffffff;
   }
   
@@ -144,7 +144,7 @@
   .social-login {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
   }
   
   .social-button {
@@ -167,6 +167,8 @@
     gap: 1rem;
     padding: 2rem;
     overflow: hidden;
+    width: 1100px;
+   
   }
   
   .poster-column {
@@ -246,3 +248,34 @@
       padding: 2rem;
     }
   }
+
+
+  .login-link {
+    text-align: center;
+    margin: 1rem 0;
+    color: #666;
+  }
+  
+  .login-link a {
+    color: #4a46eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  .social-button-transparent {
+    padding: 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-button-transparent:hover {
+    transform: scale(1.1);
+  }
+  
