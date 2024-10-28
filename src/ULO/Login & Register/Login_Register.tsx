@@ -53,22 +53,22 @@ const LoginRegister: Component = () => {
     // Setelah login berhasil, navigasi ke halaman beranda
     navigate("/Beranda-Dekstop"); // Ganti "/home" dengan route yang sesuai untuk halaman beranda
   };
-  
+
 
   return (
     <div class="container">
       <div class="login-section">
         <h1 class="logo">ULO.</h1>
         <h2 class="welcome">Selamat Datang!</h2>
-        
+
         <div class={tabContainerClass()}>
-          <button 
+          <button
             class={`tab ${!isRegister() ? 'active' : ''}`}
             onClick={() => setIsRegister(false)}
           >
             Login
           </button>
-          <button 
+          <button
             class={`tab ${isRegister() ? 'active' : ''}`}
             onClick={() => setIsRegister(true)}
           >
@@ -144,7 +144,7 @@ const LoginRegister: Component = () => {
           </button>
 
           <Show when={!isRegister()}>
-            <a href="#" class="forgot-password">Lupa Password?</a>
+            <a class="forgot-password" onClick={() => navigate('/lupapass')}>Lupa Password?</a>
           </Show>
 
           <div class="divider">Atau Masuk Dengan</div>

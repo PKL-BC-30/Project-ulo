@@ -33,6 +33,7 @@ render(
         <Route path="/filter-pencarian" element={<Filter />} />
         <Route path="/Baru&Populer" element={<Baru_populer />} />
         <Route path="/login" element={<Login_Register />} />
+        <Route path="/lupapass" element={<LupaPass />} />
         <Route path="/DaftarSaya" element={<DaftarSaya />} />
         <Route path="/VidPlayer" element={<App />} />
         <Route path="/VidEps" element={<EPS />} />
