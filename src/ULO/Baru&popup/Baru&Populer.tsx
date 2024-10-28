@@ -7,8 +7,8 @@ const Baru_populer = () => {
     let movieBaru;  // Ref for "Rekomendasi untuk Anda"
     let moviePopuler;
     let moviePilihan;
-    let movieLayak      // Ref for "Film & Acara TV Indonesia"
-
+    let movieLayak;
+    let movieHadir;
     // Scroll functions for "Rekomendasi untuk Anda"
     const scrollLeftBaru = () => {
         movieBaru.scrollBy({ left: -300, behavior: 'smooth' });
@@ -43,6 +43,14 @@ const Baru_populer = () => {
         movieBaru.scrollBy({ left: 300, behavior: 'smooth' })
     };
 
+    const scrollRightHadir = () =>{
+        movieHadir.scrollBy({left: 300, behavior: 'smooth'})
+    };
+
+    const scrollLeftHadir = () =>{
+        movieHadir.scrollBy({left: -300, behavior: 'smooth'})
+    };
+
 
     return (
         <div class="container">
@@ -50,21 +58,21 @@ const Baru_populer = () => {
             <div class="">
                 <h2 class="section-title">Baru di Ulo</h2>
                 <div class="movie-row">
-                    <div class="movie-card">
+                    <div class="movie-card-p">
                         <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card-p">
                         <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card-p">
                         <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card-p">
                         <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
-                    </div><div class="movie-card">
+                    </div><div class="movie-card-p">
                         <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card-p">
                         <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
                     </div>
                 </div>
@@ -143,19 +151,19 @@ const Baru_populer = () => {
 
                 <h2 class="section-title">Akan Hadir Minggu Ini</h2>
                 <div class="movie-row">
-                    <div class="movie-card">
+                    <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                     </div>
                 </div>
@@ -163,25 +171,25 @@ const Baru_populer = () => {
                 <section>
                     <h2 class="section-title">Layak Ditunggu</h2>
                     <div class="movie-row">
-                        <div class="movie-card">
+                        <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                         </div>
-                        <div class="movie-card">
+                        <div class="movie-card-p">
                         <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
                         </div>
                     </div>

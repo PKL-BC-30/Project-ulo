@@ -134,7 +134,6 @@
     /* Ensures all movie cards have the same width */
     position: relative;
     border-radius: 8px;
-    overflow-y: auto;
     /* Enables vertical scrolling */
     transition: transform 0.3s;
     height: 170px;
