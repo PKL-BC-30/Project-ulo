@@ -6,13 +6,22 @@ import lupapassimg from '../Lupa Password/lupapass.svg';
 const LupaPass: Component = () => {
   const navigate = useNavigate();
   const [view, setView] = createSignal("reset"); // Initial view is 'reset'
+  const [otp, setOtp] = createSignal(""); // Signal for the OTP input
 
   const handleResetPassword = () => {
     setView("checkEmail");
   };
 
   const handleVerifyPassword = () => {
-    setView("newPassword");
+    setView("otp"); // Show the OTP modal
+  };
+
+  const handleOtpVerification = () => {
+    if (otp() === "1234") { // Example OTP verification (replace with actual logic)
+      setView("newPassword");
+    } else {
+      alert("Invalid OTP. Please try again.");
+    }
   };
 
   const handlePasswordResetSuccess = () => {
@@ -22,11 +31,11 @@ const LupaPass: Component = () => {
   return (
     <div class="container-syauqiy">
       {view() === "reset" && (
-        // Reset Password View
         <div class="left-section">
-          <h1>ULO.</h1>
-          <h2>Lupa password?</h2>
-          <p>Jangan khawatir, kami akan mengirimkan petunjuk pengaturan ulang kepada anda.</p>
+          <h1 class="reset-title">ULO.</h1>
+          <h2 class="reset-subtitle">Lupa password?</h2>
+          <p class="reset-text">Jangan khawatir, kami akan mengirimkan petunjuk <br />
+            pengaturan ulang kepada anda.</p>
           <input type="email" placeholder="Masukan email anda" />
           <button onClick={handleResetPassword}>Reset kata sandi</button>
           <a href="#" onClick={() => navigate("/login")}>← Kembali ke login</a>
@@ -34,29 +43,43 @@ const LupaPass: Component = () => {
       )}
 
       {view() === "checkEmail" && (
-        // Check Email View
         <div class="left-section">
-          <h1>ULO.</h1>
-          <h2>Periksa email anda</h2>
-          <p>
+          <h1 class="check-title">ULO.</h1>
+          <h2 class="check-subtitle">Periksa email anda</h2>
+          <p class="check-text">
             Kami mengirimkan tautan pengaturan ulang kata sandi ke
             andidugong@gmail.com
           </p>
           <button onClick={handleVerifyPassword}>Verifikasi kata sandi</button>
-          <p>Belum menerima email? <a href="#">kirim ulang</a></p>
+          <p class="resend-text">Belum menerima email? <a href="#">kirim ulang</a></p>
           <a href="#" onClick={() => navigate("/login")}>← Kembali ke login</a>
         </div>
       )}
 
+      {view() === "otp" && (
+        <div class="otp-modal">
+          <h2 class="otp-title">Masukan kode OTP</h2>
+          <p class="otp-text">Kami mengirimkan kode OTP ke email anda.</p>
+          <input
+            type="text"
+            maxLength="4"
+            value={otp()}
+            onInput={(e) => setOtp(e.target.value)}
+            class="otp-input"
+            placeholder="____"
+          />
+          <button onClick={handleOtpVerification}>Verifikasi OTP</button>
+        </div>
+      )}
+
       {view() === "newPassword" && (
-        // New Password View
         <div class="left-section">
-          <h1>ULO.</h1>
-          <h2>Masukan kata sandi baru</h2>
+          <h1 class="newpassword-title">ULO.</h1>
+          <h2 class="newpassword-subtitle">Masukan kata sandi baru</h2>
           <div>
             <label>Kata sandi</label>
             <input type="password" placeholder="Masukan kata sandi baru" />
-            <small>Harus minimal 8 karakter</small>
+            <small class="password-hint">Harus minimal 8 karakter</small>
           </div>
           <div>
             <label>Konfirmasi kata sandi</label>
@@ -68,11 +91,10 @@ const LupaPass: Component = () => {
       )}
 
       {view() === "success" && (
-        // Success View
         <div class="left-section">
-          <h1>ULO.</h1>
-          <h2>Reset kata sandi</h2>
-          <p>Kata sandi anda telah berhasil direset. Klik di bawah untuk melihat secara ajaib.</p>
+          <h1 class="success-title">ULO.</h1>
+          <h2 class="success-subtitle">Reset kata sandi</h2>
+          <p class="success-text">Kata sandi anda telah berhasil direset. Klik di bawah untuk melihat secara ajaib.</p>
           <button onClick={() => navigate("/login")}>Lanjutkan</button>
           <a href="#" onClick={() => navigate("/login")}>← Kembali ke login</a>
         </div>

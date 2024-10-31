@@ -44,6 +44,18 @@ const PopupTrailer = (props) => {
         }
     };
 
+    const resetVideoState = () => {
+        setIsVideoPause(false);
+        setCurrentTime(0);
+        if (videoRef) {
+            videoRef.currentTime = 0;
+            videoRef.play()
+                .catch((error) => {
+                    console.error("Error replaying video:", error);
+                });
+        }
+    };
+
     const handlePauseClick = () => {
         if (videoRef) {
             if (videoRef.paused) {
@@ -144,7 +156,7 @@ const PopupTrailer = (props) => {
             });
 
             videoRef.addEventListener('ended', () => {
-                setIsVideoPause(true);
+                resetVideoState();  // Reset and replay the video
             });
 
             videoRef.addEventListener('error', (e) => {
