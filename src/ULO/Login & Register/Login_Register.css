@@ -1,5 +1,5 @@
 /* Login_Register.css */
-.container {
+.containerkaff {
     display: flex;
     height: 100vh;
     background-color: black;
@@ -279,3 +279,115 @@
     transform: scale(1.1);
   }
   
+  /* Popup container */
+.popup-containerkaff {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Base popup styles */
+.popup {
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Success popup */
+.popup-success {
+  background-color: #10B981;
+  color: white;
+  border-left: 4px solid #059669;
+}
+
+/* Error popup */
+.popup-error {
+  background-color: #EF4444;
+  color: white;
+  border-left: 4px solid #DC2626;
+}
+
+/* Validation popup */
+.popup-validation {
+  background-color: #F59E0B;
+  color: white;
+  border-left: 4px solid #D97706;
+}
+
+/* Icon container */
+.popup-icon {
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+}
+
+/* Message text */
+.popup-message {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Close button */
+.popup-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.popup-close:hover {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Validation errors list */
+.validation-errors {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #FEF2F2;
+  border-radius: 6px;
+  padding: 8px;
+  margin-top: 4px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.validation-error-item {
+  color: #DC2626;
+  font-size: 12px;
+  margin: 4px 0;
+}
