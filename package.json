@@ -21,6 +21,7 @@
     "@solidjs/router": "^0.8.2",
     "pnpm": "^9.12.2",
     "solid-js": "^1.8.11",
-    "solid-styled-components": "^0.28.5"
+    "solid-styled-components": "^0.28.5",
+    "vercel": "^37.12.1"
   }
 }

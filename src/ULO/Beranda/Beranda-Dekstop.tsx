@@ -8,9 +8,11 @@ const Dekstop = () => {
     const [scrolled, setScrolled] = createSignal(false);
     const [showPopup, setShowPopup] = createSignal(false);
     const [currentSlide, setCurrentSlide] = createSignal(0);  // State untuk melacak slide aktif  // State untuk melacak slide aktif
+    const [selectedMovieId, setSelectedMovieId] = createSignal(null);
 
-    const handlePopup = () => {
+    const handlePopup = (id) => {
         setShowPopup(true);  // Menampilkan popup
+        setSelectedMovieId(id);
         document.body.style.overflow = 'hidden';  // Sembunyikan scrollbar
     };
 
@@ -168,14 +170,14 @@ const Dekstop = () => {
                         <img src="src\foto\kiri.svg" alt="kiri" />
                     </button>
                     <div class="movie-grid" ref={movieGridRefRekomendasi}>
-                        <div class="movie-card" onClick={handlePopup}>
+                        <div class="movie-card" onClick={() => handlePopup(4)}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 1" />
                             <div class="movie-info">
                                 <h3 class="movie-title">One Piece</h3>
                                 <div class="movie-duration">2j 30min</div>
                             </div>
                         </div>
-                        <div class="movie-card" onClick={handlePopup}>
+                        <div class="movie-card" onClick={() => handlePopup(1)}>
                             <img src="src\foto\Rekomendasi2.svg" alt="movie 2" />
                             <div class="movie-info">
                                 <h3 class="movie-title">Extraction</h3>
@@ -392,7 +394,7 @@ const Dekstop = () => {
                             </div>
                         </div>
                         <div class="movie-card" onClick={handlePopup}>
-                            <img src="src\foto\Rekomendasi1.svg" alt="movie 5" />
+                            <img src="src\foto\Rekomendasi1.svg" alt="movie 6" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>
                                 <div class="movie-duration">1j 45min</div>
@@ -405,7 +407,17 @@ const Dekstop = () => {
                 </div>
             </section>
 
-            {showPopup() && <PopupTrailer onClose={closePopup} />}
+            {selectedMovieId() && showPopup() && (
+                <PopupTrailer
+                    id={selectedMovieId()}
+                    onClose={() => {
+                        closePopup();
+                        setSelectedMovieId(null);
+                    }} // Close PopupTrailer and reset selectedMovieId
+                />
+            )}
+
+
         </div>
     );
 };
