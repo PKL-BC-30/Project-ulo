@@ -1,5 +1,6 @@
 import { createSignal, onMount } from 'solid-js';
 import './popupTrailer.css';
+import { toggleFilmInDaftarSaya, isFilmInDaftarSaya } from '../../../Store/store';
 
 
 const PopupTrailer = (props) => {
@@ -29,7 +30,18 @@ const PopupTrailer = (props) => {
         setIsExpanded(!isExpanded());
     };
 
+    onMount(() => {
+        setIsPlusActive(isFilmInDaftarSaya(props.id)); // Set initial state based on stored data
+    });
+
     const handlePlusClick = () => {
+        const film = {
+            id: props.id,
+            thumbnail: filmData()?.thumbnail,
+            title: filmData()?.nama,
+            duration: filmData()?.durasi
+        };
+        toggleFilmInDaftarSaya(film);
         setIsPlusActive(!isPlusActive());
     };
 
@@ -225,21 +237,17 @@ const PopupTrailer = (props) => {
                                 <button
                                     class='aksi2'
                                     onClick={handlePlusClick}
-                                    onMouseEnter={() => setIsPopupVisiblePlus(true)}
-                                    onMouseLeave={() => setIsPopupVisiblePlus(false)}
                                 >
                                     <img
                                         src={isPlusActive()
                                             ? "src/ULO/Trailer/assets/check.svg"
                                             : "src/ULO/Trailer/assets/plus.svg"}
-                                        alt={isPlusActive()
-                                            ? "Tambah Daftar Active"
-                                            : "Tambah Daftar"}
+                                        alt={isPlusActive() ? "Added" : "Add"}
                                         class='plusButton'
                                     />
-                                    {isPopupVisiblePlus() && (
+                                    {isFilmInDaftarSaya(props.id) && (
                                         <div class='popup-tambah-daftar'>
-                                            <img src="src/ULO/Trailer/assets/tambahDaftar.svg" alt="Tambah Daftar Popup" class='tambahDaftar' />
+                                            <img src="src/ULO/Trailer/assets/tambahDaftar.svg" alt="Added Popup" class='tambahDaftar' />
                                         </div>
                                     )}
                                 </button>

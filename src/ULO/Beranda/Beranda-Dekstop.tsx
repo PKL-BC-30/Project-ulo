@@ -170,14 +170,14 @@ const Dekstop = () => {
                         <img src="src\foto\kiri.svg" alt="kiri" />
                     </button>
                     <div class="movie-grid" ref={movieGridRefRekomendasi}>
-                        <div class="movie-card" onClick={() => handlePopup (4)}>
+                        <div class="movie-card" onClick={() => handlePopup(4)}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 1" />
                             <div class="movie-info">
                                 <h3 class="movie-title">One Piece</h3>
                                 <div class="movie-duration">2j 30min</div>
                             </div>
                         </div>
-                        <div class="movie-card" onClick={() => handlePopup (1)}>
+                        <div class="movie-card" onClick={() => handlePopup(1)}>
                             <img src="src\foto\Rekomendasi2.svg" alt="movie 2" />
                             <div class="movie-info">
                                 <h3 class="movie-title">Extraction</h3>
@@ -407,12 +407,17 @@ const Dekstop = () => {
                 </div>
             </section>
 
-            {selectedMovieId() && (
-                <PopupTrailer 
-                    id={selectedMovieId()} 
-                    onClose={() => setSelectedMovieId(null)} // Close PopupTrailer
+            {selectedMovieId() && showPopup() && (
+                <PopupTrailer
+                    id={selectedMovieId()}
+                    onClose={() => {
+                        closePopup();
+                        setSelectedMovieId(null);
+                    }} // Close PopupTrailer and reset selectedMovieId
                 />
             )}
+
+
         </div>
     );
 };
