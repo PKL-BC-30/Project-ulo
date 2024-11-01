@@ -7,25 +7,62 @@ const LupaPass: Component = () => {
   const navigate = useNavigate();
   const [view, setView] = createSignal("reset"); // Initial view is 'reset'
   const [otp, setOtp] = createSignal(""); // Signal for the OTP input
+  const [email, setEmail] = createSignal(""); // Signal for the user's email
+  const [newPassword, setNewPassword] = createSignal(""); // Signal for new password input
 
-  const handleResetPassword = () => {
-    setView("checkEmail");
+  const handleResetPassword = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:8080/send_otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email() }),
+      });
+      if (response.ok) {
+        setView("checkEmail"); // Switch to the check email view
+      } else {
+        console.error("Error sending OTP:", await response.text());
+      }
+    } catch (error) {
+      console.error("Error sending OTP:", error);
+    }
   };
 
   const handleVerifyPassword = () => {
     setView("otp"); // Show the OTP modal
   };
 
-  const handleOtpVerification = () => {
-    if (otp() === "1234") { // Example OTP verification (replace with actual logic)
-      setView("newPassword");
-    } else {
-      alert("Invalid OTP. Please try again.");
+  const handleOtpVerification = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:8080/verify_otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email(), otp: otp() }),
+      });
+      if (response.ok) {
+        setView("newPassword"); // Proceed to the new password input if OTP is valid
+      } else {
+        alert("Invalid OTP. Please try again.");
+      }
+    } catch (error) {
+      console.error("OTP verification error:", error);
     }
   };
 
-  const handlePasswordResetSuccess = () => {
-    setView("success"); // New view for the success message
+  const handlePasswordResetSuccess = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:8080/reset_password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email(), new_password: newPassword() }),
+      });
+      if (response.ok) {
+        setView("success"); // Show success message on password reset
+      } else {
+        console.error("Password reset error:", await response.text());
+      }
+    } catch (error) {
+      console.error("Password reset error:", error);
+    }
   };
 
   return (
@@ -36,7 +73,12 @@ const LupaPass: Component = () => {
           <h2 class="reset-subtitle">Lupa password?</h2>
           <p class="reset-text">Jangan khawatir, kami akan mengirimkan petunjuk <br />
             pengaturan ulang kepada anda.</p>
-          <input type="email" placeholder="Masukan email anda" />
+          <input 
+            type="email" 
+            placeholder="Masukan email anda" 
+            value={email()}
+            onInput={(e) => setEmail(e.currentTarget.value)}
+          />
           <button onClick={handleResetPassword}>Reset kata sandi</button>
           <a href="#" onClick={() => navigate("/login")}>← Kembali ke login</a>
         </div>
@@ -47,11 +89,10 @@ const LupaPass: Component = () => {
           <h1 class="check-title">ULO.</h1>
           <h2 class="check-subtitle">Periksa email anda</h2>
           <p class="check-text">
-            Kami mengirimkan tautan pengaturan ulang kata sandi ke
-            andidugong@gmail.com
+            Kami mengirimkan tautan pengaturan ulang kata sandi ke {email()}
           </p>
           <button onClick={handleVerifyPassword}>Verifikasi kata sandi</button>
-          <p class="resend-text">Belum menerima email? <a href="#">kirim ulang</a></p>
+          <p class="resend-text">Belum menerima email? <a href="#" onClick={handleResetPassword}>kirim ulang</a></p>
           <a href="#" onClick={() => navigate("/login")}>← Kembali ke login</a>
         </div>
       )}
@@ -64,7 +105,7 @@ const LupaPass: Component = () => {
             type="text"
             maxLength="4"
             value={otp()}
-            onInput={(e) => setOtp(e.target.value)}
+            onInput={(e) => setOtp(e.currentTarget.value)}
             class="otp-input"
             placeholder="____"
           />
@@ -78,12 +119,13 @@ const LupaPass: Component = () => {
           <h2 class="newpassword-subtitle">Masukan kata sandi baru</h2>
           <div>
             <label>Kata sandi</label>
-            <input type="password" placeholder="Masukan kata sandi baru" />
+            <input 
+              type="password" 
+              placeholder="Masukan kata sandi baru" 
+              value={newPassword()}
+              onInput={(e) => setNewPassword(e.currentTarget.value)}
+            />
             <small class="password-hint">Harus minimal 8 karakter</small>
-          </div>
-          <div>
-            <label>Konfirmasi kata sandi</label>
-            <input type="password" placeholder="Masukan kata sandi baru" />
           </div>
           <button onClick={handlePasswordResetSuccess}>Reset kata sandi</button>
           <a href="#" onClick={() => navigate("/login")}>← Kembali ke login</a>
@@ -94,7 +136,7 @@ const LupaPass: Component = () => {
         <div class="left-section">
           <h1 class="success-title">ULO.</h1>
           <h2 class="success-subtitle">Reset kata sandi</h2>
-          <p class="success-text">Kata sandi anda telah berhasil direset. Klik di bawah untuk melihat secara ajaib.</p>
+          <p class="success-text">Kata sandi anda telah berhasil direset. Klik di bawah untuk melanjutkan.</p>
           <button onClick={() => navigate("/login")}>Lanjutkan</button>
           <a href="#" onClick={() => navigate("/login")}>← Kembali ke login</a>
         </div>
