@@ -53,7 +53,7 @@ const Baru_populer = () => {
 
 
     return (
-        <div class="container">
+        <div class="container-baru">
             <Navbar />
             <div class="">
                 <h2 class="section-title">Baru di Ulo</h2>

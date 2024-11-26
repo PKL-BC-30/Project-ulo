@@ -170,7 +170,7 @@ const Dekstop = () => {
                         <img src="src\foto\kiri.svg" alt="kiri" />
                     </button>
                     <div class="movie-grid" ref={movieGridRefRekomendasi}>
-                        <div class="movie-card" onClick={() => handlePopup(4)}>
+                        <div class="movie-card" onClick={() => handlePopup(6)}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 1" />
                             <div class="movie-info">
                                 <h3 class="movie-title">One Piece</h3>
@@ -184,7 +184,7 @@ const Dekstop = () => {
                                 <div class="movie-duration">2j 15min</div>
                             </div>
                         </div>
-                        <div class="movie-card" onClick={handlePopup}>
+                        <div class="movie-card" onClick={() => handlePopup(3)}>
                             <img src="src\foto\Rekomendasi1.svg" alt="movie 3" />
                             <div class="movie-info">
                                 <h3 class="movie-title">The Angry Birds 2</h3>

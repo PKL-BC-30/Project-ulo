@@ -45,8 +45,36 @@ const PopupTrailer = (props) => {
         setIsPlusActive(!isPlusActive());
     };
 
-    const handleLikeClick = () => {
-        setIsLikeActive(!isLikeActive());
+    onMount(() => {
+        const likedFilms = JSON.parse(localStorage.getItem('likedFilms')) || {};
+        setIsLikeActive(likedFilms[props.id] || false);
+    });
+
+    const handleLikeClick = async () => {
+        try {
+            const response = await fetch('http://localhost:8080/film-like', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ film_id: props.id }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const newLikeStatus = !isLikeActive();
+                setIsLikeActive(newLikeStatus);
+
+                // Update localStorage with the new like status
+                const likedFilms = JSON.parse(localStorage.getItem('likedFilms')) || {};
+                likedFilms[props.id] = newLikeStatus;
+                localStorage.setItem('likedFilms', JSON.stringify(likedFilms));
+
+                console.log(data.message); // Log the server response
+            } else {
+                console.error("Error liking/unliking film:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
     };
 
     const handleVolumeClick = () => {
@@ -202,14 +230,9 @@ const PopupTrailer = (props) => {
                 <div class='popup-content' style={{ height: isExpanded() ? '3650px' : '2425px' }}>
                     <img src="src/ULO/Trailer/assets/close.svg" alt="close" class='closeIcon' onClick={handleClose} />
                     {isVideoVisible() ? (
-                        <video
-                            ref={setupVideoEvents}
-                            src="src/ULO/Trailer/assets/videoTrailer.mp4"
-                            autoplay
-                            muted={isVolumeMuted()} // Sesuaikan dengan kondisi volume
-                            controls={false}
-                            class={`video-player ${isVideoLoaded() ? 'fade-in' : ''}`}
-                        />
+                        <iframe class="vid" src={`${filmData()?.trailer}?autoplay=($id)`} 
+                            allow="autoplay">
+                        </iframe>
                     ) : (
                         <img
                             src={`data:image/png;base64,${filmData()?.thumbnail}`}
@@ -260,10 +283,10 @@ const PopupTrailer = (props) => {
                                     <img
                                         src={isLikeActive()
                                             ? "src/ULO/Trailer/assets/likeActive.svg"
-                                            : "src/ULO/Trailer/assets/like.svg"}
+                                            : "src/ULO/Trailer/assets/like.svg "}
                                         alt={isLikeActive()
-                                            ? "Like Film Active"
-                                            : "Like Film"}
+                                            ? "Like Film"
+                                            : "Like Film Active"}
                                         class='likeButton'
                                     />
                                     {isPopupVisibleLike() && (
