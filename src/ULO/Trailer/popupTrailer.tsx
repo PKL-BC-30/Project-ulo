@@ -1,6 +1,16 @@
 import { createSignal, onMount } from 'solid-js';
 import './popupTrailer.css';
 import { toggleFilmInDaftarSaya, isFilmInDaftarSaya } from '../../../Store/store';
+import close from '../Trailer/assets/close.svg';
+import audio from '../Trailer/assets/audioJudul.svg';
+import hd from '../Trailer/assets/hdJudul.svg';
+import add from '../Trailer/assets/plus.svg';
+import putar from '../Trailer/assets/play.svg';
+import like from '../Trailer/assets/like.svg';
+import like2 from '../Trailer/assets/likeActive.svg';
+import suara from '../Trailer/assets/suaraNyala.svg';
+import suara2 from '../Trailer/assets/suaraMati.svg';
+import delapanbelas from '../Trailer/assets/18Tentang.svg';
 
 
 const PopupTrailer = (props) => {
@@ -228,7 +238,7 @@ const PopupTrailer = (props) => {
         <div class='popup-overlay'>
             <div class='popup-scroll'>
                 <div class='popup-content' style={{ height: isExpanded() ? '3650px' : '2425px' }}>
-                    <img src="src/ULO/Trailer/assets/close.svg" alt="close" class='closeIcon' onClick={handleClose} />
+                    <img src={close} alt="close" class='closeIcon' onClick={handleClose} />
                     {isVideoVisible() ? (
                         <iframe class="vid" src={`${filmData()?.trailer}?autoplay=($id)`} 
                             allow="autoplay">
@@ -255,7 +265,7 @@ const PopupTrailer = (props) => {
                             <div class='aksi'>
                                 <button class='aksi1'>
                                     <p class='textPutar'>Putar Sekarang</p>
-                                    <img src="src/ULO/Trailer/assets/play.svg" alt="Putar Sekarang" class='playButton' />
+                                    <img src={putar} alt="Putar Sekarang" class='playButton' />
                                 </button>
                                 <button
                                     class='aksi2'
@@ -340,11 +350,11 @@ const PopupTrailer = (props) => {
                         <div class='kiri2'>
                             <div class='informasi1'>
                                 <p class='tanggalRilis'>{filmData()?.durasi}</p>
-                                <img src="src/ULO/Trailer/assets/hdJudul.svg" alt="HD Judul" class='hdJudul' />
-                                <img src="src/ULO/Trailer/assets/audioJudul.svg" alt="Audio Judul" class='audioJudul' />
+                                <img src={hd} alt="HD Judul" class='hdJudul' />
+                                <img src={audio} alt="Audio Judul" class='audioJudul' />
                             </div>
                             <div class='informasi2'>
-                                <img src="src/ULO/Trailer/assets/18Judul.svg" alt="18 Judul" class='judul18' />
+                                <img src={delapanbelas} alt="18 Judul" class='judul18' />
                                 <p class='kekerasan'>{filmData()?.keterangan_rating}</p>
                             </div>
                             <p class='deskripsiFilm'>{filmData()?.sinopsis}</p>
@@ -396,7 +406,7 @@ const PopupTrailer = (props) => {
 
                             <div class="sectionRating">
                                 <span class="title">Rating usia:</span>
-                                <img src="src/ULO/Trailer/assets/18Tentang.svg" alt="18 Tentang" class='tentang18' />
+                                <img src={delapanbelas} alt="18 Tentang" class='tentang18' />
                                 <span class="isi">{filmData()?.keterangan_rating}</span>
                             </div>
                         </div>

@@ -2,6 +2,10 @@ import { createSignal, onCleanup, onMount, For } from 'solid-js';
 import './Beranda-Dekstop.css';
 import Navbar from '../Navbar/Navbar';
 import PopupTrailer from '../Trailer/popupTrailer';
+import kiri from '../../foto/kiri.svg';
+import kanan from '../../foto/kanan.svg';
+import avatar from '../../foto/Avatar-HeroSection.svg';
+
 
 const Dekstop = () => {
 
@@ -167,7 +171,7 @@ const Dekstop = () => {
                 <h2 class="section-title">Rekomendasi untuk Anda</h2>
                 <div class="movie-controls">
                     <button class="scroll-button" onClick={scrollLeftRekomendasi}>
-                        <img src="src\foto\kiri.svg" alt="kiri" />
+                        <img src={kiri} alt="kiri" />
                     </button>
                     <div class="movie-grid" ref={movieGridRefRekomendasi}>
                         <div class="movie-card" onClick={() => handlePopup(6)}>
@@ -223,7 +227,7 @@ const Dekstop = () => {
                         </div>
                     </div>
                     <button class="scroll-button" onClick={scrollRightRekomendasi}>
-                        <img src="src\foto\kanan.svg" alt="kanan" />
+                        <img src={kanan} alt="kanan" />
                     </button>
                 </div>
             </section>
@@ -232,7 +236,7 @@ const Dekstop = () => {
                 <h2 class="section-title">Film & Acara TV Indonesia</h2>
                 <div class="movie-controls">
                     <button class="scroll-button" onClick={scrollLeftIndo}>
-                        <img src="src\foto\kiri.svg" alt="kiri" />
+                        <img src={kiri} alt="kiri" />
                     </button>
                     <div class="movie-grid" ref={movieGridRefIndo}>
                         <div class="movie-card" onClick={handlePopup}>
@@ -280,7 +284,7 @@ const Dekstop = () => {
                         </div>
                     </div>
                     <button class="scroll-button" onClick={scrollRightIndo}>
-                        <img src="src\foto\kanan.svg" alt="kanan" />
+                        <img src={kanan} alt="kanan" />
                     </button>
                 </div>
             </section >
@@ -346,7 +350,7 @@ const Dekstop = () => {
                 <h2 class="section-title">Film Laga dan Petualangan</h2>
                 <div class="movie-controls">
                     <button class="scroll-button" onClick={scrollLeftPetualangan}>
-                        <img src="src\foto\kiri.svg" alt="kiri" />
+                        <img src={kiri} alt="kiri" />
                     </button>
                     <div class="movie-grid" ref={movieLagaPetualangan}>
                         <div class="movie-card" onClick={handlePopup}>
@@ -402,7 +406,7 @@ const Dekstop = () => {
                         </div>
                     </div>
                     <button class="scroll-button" onClick={scrollRightPetualangan}>
-                        <img src="src\foto\kanan.svg" alt="kanan" />
+                        <img src={kanan} alt="kanan" />
                     </button>
                 </div>
             </section>

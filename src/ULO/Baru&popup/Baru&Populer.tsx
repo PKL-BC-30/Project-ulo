@@ -1,6 +1,14 @@
 import { createSignal, onCleanup, onMount, For } from 'solid-js';
 import './Baru&Populer.css';
 import Navbar from '../Navbar/Navbar';
+import baru1 from '../../foto/Baru1.svg';
+import number1 from '../../foto/numberik1.svg';
+import numberr1 from '../../foto/satu.svg';
+import numberr2 from '../../foto/dua.svg';
+import numberr3 from '../../foto/tiga.svg';
+import numberr4 from '../../foto/empat.svg';
+import numberr5 from '../../foto/lima.svg';
+import akanhadir from '../../foto/akanhadir1.svg';
 
 const Baru_populer = () => {
 
@@ -59,21 +67,21 @@ const Baru_populer = () => {
                 <h2 class="section-title">Baru di Ulo</h2>
                 <div class="movie-row">
                     <div class="movie-card-p">
-                        <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
+                        <img src={baru1} alt="Movie 1" class="movie-card" />
                     </div>
                     <div class="movie-card-p">
-                        <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
+                        <img src={baru1} alt="Movie 1" class="movie-card" />
                     </div>
                     <div class="movie-card-p">
-                        <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
+                        <img src={baru1} alt="Movie 1" class="movie-card" />
                     </div>
                     <div class="movie-card-p">
-                        <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
+                        <img src={baru1} alt="Movie 1" class="movie-card" />
                     </div><div class="movie-card-p">
-                        <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
+                        <img src={baru1} alt="Movie 1" class="movie-card" />
                     </div>
                     <div class="movie-card-p">
-                        <img src="src\foto\Baru1.svg" alt="Movie 1" class="movie-card" />
+                        <img src={baru1} alt="Movie 1" class="movie-card" />
                     </div>
                 </div>
 
@@ -81,33 +89,33 @@ const Baru_populer = () => {
                     <h2 class="section-title">10 Film Terpopuler di Ulo Hari Ini</h2>
                     <div class="movie-row">
                         <div class="movie-list">
-                            <img src="src\foto\satu.svg" alt="Film 1" class="nomorFilm" />
+                            <img src={numberr1} alt="Film 1" class="nomorFilm" />
                             <div class="movie-card-number1">
-                                <img src="src\foto\numberik1.svg" alt="Popular Movie 1" class="kartu" />
+                                <img src={number1} alt="Popular Movie 1" class="kartu" />
                             </div>
                         </div>
                         <div class="movie-list">
-                            <img src="src\foto\dua.svg" alt="Film 2" class="nomorFilm" />
+                            <img src={numberr2} alt="Film 2" class="nomorFilm" />
                             <div class="movie-card-number2">
-                                <img src="src\foto\numberik1.svg" alt="Popular Movie 2" class="kartu" />
+                                <img src={number1} alt="Popular Movie 2" class="kartu" />
                             </div>
                         </div>
                         <div class="movie-list">
-                            <img src="src\foto\tiga.svg" alt="Film 3" class="nomorFilm" />
+                            <img src={numberr3} alt="Film 3" class="nomorFilm" />
                             <div class="movie-card-number3">
-                                <img src="src\foto\numberik1.svg" alt="Popular Movie 3" class="kartu" />
+                                <img src={number1} alt="Popular Movie 3" class="kartu" />
                             </div>
                         </div>
                         <div class="movie-list">
-                            <img src="src\foto\empat.svg" alt="Film 4" class="nomorFilm" />
+                            <img src={numberr4} alt="Film 4" class="nomorFilm" />
                             <div class="movie-card-number4">
-                                <img src="src\foto\numberik1.svg" alt="Popular Movie 4" class="kartu" />
+                                <img src={number1} alt="Popular Movie 4" class="kartu" />
                             </div>
                         </div>
                         <div class="movie-list">
-                            <img src="src\foto\lima.svg" alt="Film 5" class="nomorFilm" />
+                            <img src={numberr5} alt="Film 5" class="nomorFilm" />
                             <div class="movie-card-number5">
-                                <img src="src\foto\numberik1.svg" alt="Popular Movie 5" class="kartu" />
+                                <img src={number1} alt="Popular Movie 5" class="kartu" />
                             </div>
                         </div>
                     </div>
@@ -117,33 +125,33 @@ const Baru_populer = () => {
                     <h2 class="section-title">10 Pilihan pengguna</h2>
                     <div class="movie-row">
                     <div class="movie-list">
-                            <img src="src\foto\satu.svg" alt="Film 1" class="nomorFilm" />
+                            <img src={numberr1} alt="Film 1" class="nomorFilm" />
                             <div class="movie-card-number1">
-                                <img src="src\foto\numberik1.svg" alt="Popular Movie 1" class="kartu" />
+                                <img src={number1} alt="Popular Movie 1" class="kartu" />
                             </div>
                         </div>
                         <div class="movie-list">
-                            <img src="src\foto\dua.svg" alt="Film 2" class="nomorFilm" />
+                            <img src={numberr2} alt="Film 2" class="nomorFilm" />
                             <div class="movie-card-number2">
-                                <img src="src\foto\numberik1.svg" alt="Popular Movie 2" class="kartu" />
+                                <img src={number1} alt="Popular Movie 2" class="kartu" />
                             </div>
                         </div>
                         <div class="movie-list">
-                            <img src="src\foto\tiga.svg" alt="Film 3" class="nomorFilm" />
+                            <img src={numberr3} alt="Film 3" class="nomorFilm" />
                             <div class="movie-card-number3">
-                                <img src="src\foto\numberik1.svg" alt="Popular Movie 3" class="kartu" />
+                                <img src={number1} alt="Popular Movie 3" class="kartu" />
                             </div>
                         </div>
                         <div class="movie-list">
-                            <img src="src\foto\empat.svg" alt="Film 4" class="nomorFilm" />
+                            <img src={numberr4} alt="Film 4" class="nomorFilm" />
                             <div class="movie-card-number4">
-                                <img src="src\foto\numberik1.svg" alt="Popular Movie 4" class="kartu" />
+                                <img src={number1} alt="Popular Movie 4" class="kartu" />
                             </div>
                         </div>
                         <div class="movie-list">
-                            <img src="src\foto\lima.svg" alt="Film 5" class="nomorFilm" />
+                            <img src={numberr5} alt="Film 5" class="nomorFilm" />
                             <div class="movie-card-number5">
-                                <img src="src\foto\numberik1.svg" alt="Popular Movie 5" class="kartu" />
+                                <img src={number1} alt="Popular Movie 5" class="kartu" />
                             </div>
                         </div>
                     </div>
@@ -152,19 +160,19 @@ const Baru_populer = () => {
                 <h2 class="section-title">Akan Hadir Minggu Ini</h2>
                 <div class="movie-row">
                     <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                    <img src={akanhadir} alt="Upcoming Movie 1" />
                     </div>
                     <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                        <img src={akanhadir} alt="Upcoming Movie 1" />
                     </div>
                     <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                        <img src={akanhadir} alt="Upcoming Movie 1" />
                     </div>
                     <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                        <img src={akanhadir} alt="Upcoming Movie 1" />
                     </div>
                     <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                        <img src={akanhadir} alt="Upcoming Movie 1" />
                     </div>
                 </div>
 
@@ -172,25 +180,25 @@ const Baru_populer = () => {
                     <h2 class="section-title">Layak Ditunggu</h2>
                     <div class="movie-row">
                         <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                        <img src={akanhadir} alt="Upcoming Movie 1" />
                         </div>
                         <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                        <img src={akanhadir} alt="Upcoming Movie 1" />
                         </div>
                         <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                        <img src={akanhadir} alt="Upcoming Movie 1" />
                         </div>
                         <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                        <img src={akanhadir} alt="Upcoming Movie 1" />
                         </div>
                         <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                        <img src={akanhadir} alt="Upcoming Movie 1" />
                         </div>
                         <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                        <img src={akanhadir} alt="Upcoming Movie 1" />
                         </div>
                         <div class="movie-card-p">
-                        <img src="src\foto\akanhadir1.svg" alt="Upcoming Movie 1" />
+                        <img src={akanhadir} alt="Upcoming Movie 1" />
                         </div>
                     </div>
                 </section>
